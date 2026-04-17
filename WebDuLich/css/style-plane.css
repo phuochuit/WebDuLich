@@ -1,0 +1,88 @@
+body { 
+    font-family: Arial, sans-serif; 
+    background: #f5f7fa; 
+    margin: 0;
+    padding: 0;
+}
+
+.banner {
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), #0d6efd;
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.search-box {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    margin-top: -60px;
+}
+
+.tab-btn.active { 
+    background: #0d6efd !important; 
+    color: white !important; 
+}
+
+.swap-btn { 
+    cursor: pointer; 
+    padding-top: 30px; 
+}
+
+.section-title { 
+    font-weight: bold; 
+    margin-bottom: 15px; 
+}
+
+.deal-card { 
+    border-radius: 10px; 
+    transition: 0.3s; 
+}
+
+.deal-card:hover { 
+    transform: translateY(-3px); 
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1); 
+}
+
+.partner-logo { 
+    height: 40px; 
+    object-fit: contain; 
+    margin: 10px; 
+}
+
+.faq-item { 
+    border-bottom: 1px solid #eee; 
+    padding: 10px 0; 
+}
+
+.faq-question { 
+    width: 100%; 
+    background: none; 
+    border: none; 
+    text-align: left; 
+    cursor: pointer; 
+    padding: 10px 0;
+}
+
+.faq-answer { 
+    display: none; 
+    padding-top: 8px; 
+}
+
+.faq-item.active .faq-answer { 
+    display: block; 
+}
+
+.flight-card { 
+    border-left: 4px solid #0d6efd; 
+}
+.fas {
+    font-family: Arial;
+}
+.card img {
+    height: 120px;
+    object-fit: cover;
+}

@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Traveloka</title>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link href="../WebDuLich/bootstrap-5.3.8-dist/bootstrap-5.3.8-dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../WebDuLich/css/h-f.css">
+    <base target="_top">
+</head>
+
+<body>
+    <header>
+        <div class="offcanvas offcanvas-start offcanvas-custom" tabindex="-1" id="mobileMenu">
+            <div class="offcanvas-header bg-primary text-white">
+                <h5 class="offcanvas-title fw-bold fst-italic"><i class="fas fa-dove "></i> traveloka</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                    aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body p-0">
+                <a href="#" class="offcanvas-link"><i class="fas fa-percent me-2 text-primary"></i> Khuyến mãi</a>
+                <a href="#" class="offcanvas-link"><i class="fas fa-headset me-2 text-primary"></i> Hỗ trợ</a>
+                <a href="#" class="offcanvas-link"><i class="fas fa-bookmark me-2 text-primary"></i> Đặt chỗ của tôi</a>
+                <div class="border-top my-2"></div>
+                <a href="#" class="offcanvas-link">Đăng nhập</a>
+                <div class="p-3">
+                    <button class="btn btn-primary w-100 fw-bold">Đăng ký</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="top-bar">
+            <div class="container d-flex justify-content-between align-items-center">
+                <div class="d-flex align-items-center gap-3">
+                    <button class="btn text-white d-lg-none p-0 fs-4" data-bs-toggle="offcanvas"
+                        data-bs-target="#mobileMenu">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <a href="../WebDuLich/main.html"
+                        class="text-white text-decoration-none fs-3 fw-bold fst-italic d-flex align-items-center">
+                        traveloka <i class="fas fa-dove ms-1 fs-5 travelokaFooter__logoBird"></i>
+                    </a>
+                </div>
+
+                <div class="d-flex align-items-center d-none d-lg-flex">
+                    <a href="#" class="nav-link-top">
+                        <img src="https://flagcdn.com/w20/vn.png" width="20" alt="VN"> VND | VI <i
+                            class="fas fa-chevron-down" style="font-size: 10px;"></i>
+                    </a>
+
+                    <a href="#" class="nav-link-top">
+                        <span class="icon-promo"><i class="fas fa-percent"></i></span> Khuyến mãi
+                    </a>
+
+                    <div class="dropdown">
+                        <a href="#" class="nav-link-top" data-bs-toggle="dropdown">
+                            Hỗ trợ <i class="fas fa-chevron-down" style="font-size: 10px;"></i>
+                        </a>
+                        <ul class="dropdown-menu shadow border-0 mt-2">
+                            <li><a class="dropdown-item" href="#">Trung tâm trợ giúp</a></li>
+                            <li><a class="dropdown-item" href="#">Liên hệ</a></li>
+                        </ul>
+                    </div>
+
+                    <a href="#" class="nav-link-top">Hợp tác với chúng tôi</a>
+
+                    <a href="#" class="nav-link-top me-3">Đặt chỗ của tôi</a>
+
+                    <div class="d-flex gap-2">
+                        <button class="btn-login-custom">
+                            <i class="fas fa-user"></i> Đăng Nhập
+                        </button>
+                        <button class="btn-register-custom">
+                            Đăng ký
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="header-nav-bar d-none d-md-block">
+                <div class="container">
+                    <div class="service-nav-list d-flex gap-4 text-white">
+                        <a href="../WebDuLich/booking-hotel.html" class="nav-service-item text-white" style="text-decoration: none;">Khách sạn</a>
+                        <a href="../WebDuLich/booking-plane.html" class="nav-service-item text-white" style="text-decoration: none;">Vé máy bay</a>
+                        <a href="../WebDuLich/booking-car.html" class="nav-service-item text-white" style="text-decoration: none;">Vé xe khách</a>
+                        <a href="#" class="nav-service-item text-white" style="text-decoration: none;">Đưa đón sân bay</a>
+                        <a href="#" class="nav-service-item text-white" style="text-decoration: none;">Cho thuê xe</a>
+                        <a href="#" class="nav-service-item text-white" style="text-decoration: none;">Hoạt động & Vui chơi</a>
+
+                        <div class="dropdown ">
+                            <div class="nav-service-item" data-bs-toggle="dropdown">
+                                More <i class="fas fa-chevron-down ms-1" style="font-size: 10px;"></i>
+                            </div>
+
+                            <ul class="dropdown-menu shadow border-0 mt-2">
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-tags me-2 text-primary"></i>Combo
+                                        tiết kiệm</a></li>
+                                <li><a class="dropdown-item" href="#"><i
+                                            class="fas fa-shield-alt me-2 text-primary"></i>Bảo
+                                        hiểm du lịch</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-gift me-2 text-primary"></i>Phiếu
+                                        quà tặng</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-ship me-2 text-primary"></i>Du
+                                        thuyền</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-book me-2 text-primary"></i>Cẩm
+                                        nang du lịch</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section class="hero">
+
+            <div class="hero-content">
+                <h1 class="hero-title">App du lịch hàng đầu, một chạm đi bất cứ đâu</h1>
+
+                <div class="service-tabs">
+                    <button class="service-tab" id="tabHotel" onclick="switchTab('hotel')"><i class="fas fa-bed"></i>
+                        Khách sạn</button>
+                    <button class="service-tab active" id="tabFlight" onclick="switchTab('flight')"><i
+                            class="fas fa-plane"></i> Vé máy bay</button>
+                    <button class="service-tab" id="tabBus" onclick="switchTab('bus')"><i class="fas fa-bus"></i> Vé xe
+                        khách</button>
+                    <button class="service-tab" id="tabTransfer" onclick="switchTab('transfer')"><i
+                            class="fas fa-plane-departure"></i> Đưa đón sân bay</button>
+                    <button class="service-tab" id="tabCar" onclick="switchTab('car')"><i class="fas fa-car"></i> Cho
+                        thuê xe</button>
+                    <button class="service-tab" id="tabActivity" onclick="switchTab('activity')"><i
+                            class="fas fa-snowboarding"></i> Vui chơi</button>
+                    <button class="service-tab" data-bs-toggle="modal" data-bs-target="#otherServicesModal"><i
+                            class="fas fa-th-large"></i> Khác</button>
+                </div>
+
+                <div class="search-container">
+
+                    <div id="flight-section">
+                        <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-3">
+                            <div class="d-flex gap-2">
+                                <button class="trip-pill active" id="btnOneWay" onclick="toggleFlightType('one')">Một
+                                    chiều / Khứ hồi</button>
+                                <button class="trip-pill" id="btnMultiCity" onclick="toggleFlightType('multi')">Nhiều
+                                    thành phố</button>
+                            </div>
+                            <div class="d-flex gap-2 flex-wrap">
+                                <div class="dropdown">
+                                    <div class="passenger-select px-3 py-1 rounded text-white border border-white border-opacity-50 d-flex align-items-center gap-2"
+                                        data-bs-toggle="dropdown" style="cursor:pointer">
+                                        <i class="fas fa-user"></i> <span id="fPassengerText">1 Người lớn, 0 Trẻ
+                                            em</span> <i class="fas fa-chevron-down"></i>
+                                    </div>
+                                    <div class="dropdown-menu dropdown-menu-custom p-0">
+                                        <div class="counter-row">
+                                            <div>
+                                                <div style="font-weight:600">Người lớn</div>
+                                                <div class="text-muted" style="font-size:11px">(&gt;12 tuổi)</div>
+                                            </div>
+                                            <div class="d-flex align-items-center gap-3">
+                                                <div class="btn-counter" onclick="updateFlightCount('adult', -1)">-
+                                                </div>
+                                                <div class="count-display" id="fCountAdult">1</div>
+                                                <div class="btn-counter" onclick="updateFlightCount('adult', 1)">+</div>
+                                            </div>
+                                        </div>
+                                        <div class="p-2 bg-light text-end"><button class="btn btn-primary btn-sm w-100"
+                                                onclick="document.body.click()">Xong</button></div>
+                                    </div>
+                                </div>
+                                <div class="dropdown">
+                                    <div class="passenger-select px-3 py-1 rounded text-white border border-white border-opacity-50 d-flex align-items-center gap-2"
+                                        data-bs-toggle="dropdown" style="cursor:pointer">
+                                        <i class="fas fa-couch"></i> <span id="fSeatClassDisplay">Phổ thông</span> <i
+                                            class="fas fa-chevron-down"></i>
+                                    </div>
+                                    <ul class="dropdown-menu dropdown-menu-end shadow border-0 mt-2">
+                                        <li><a class="dropdown-item" href="#"
+                                                onclick="selectFlightClass('Phổ thông')">Phổ thông</a></li>
+                                        <li><a class="dropdown-item" href="#"
+                                                onclick="selectFlightClass('Thương gia')">Thương gia</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row gx-2 align-items-center">
+                            <div class="col-lg-6 col-md-12 mb-2 mb-lg-0">
+                                <div class="d-flex mb-1">
+                                    <div class="input-label flex-fill">Từ</div>
+                                    <div class="input-label flex-fill ps-3">Đến</div>
+                                </div>
+                                <div class="pill-group-container">
+                                    <div class="dropdown flex-grow-1 h-100 w-100">
+                                        <div class="pill-sub-input start-pill h-100" data-bs-toggle="dropdown"><i
+                                                class="fas fa-plane-departure text-primary fs-5"></i>
+                                            <div class="input-display" id="fFromText">TP HCM (SGN)</div>
+                                        </div>
+                                        <ul class="dropdown-menu dropdown-menu-custom w-100">
+                                            <li><a class="dropdown-item"
+                                                    onclick="selectFlightLocation('from', 'TP HCM (SGN)')">TP HCM
+                                                    (SGN)</a></li>
+                                            <li><a class="dropdown-item"
+                                                    onclick="selectFlightLocation('from', 'Hà Nội (HAN)')">Hà Nội
+                                                    (HAN)</a></li>
+                                            <li><a class="dropdown-item"
+                                                    onclick="selectFlightLocation('from', 'Đà Nẵng (DAD)')">Đà Nẵng
+                                                    (DAD)</a></li>
+                                            <li><a class="dropdown-item"
+                                                    onclick="selectFlightLocation('from', 'Nha Trang (CXR)')">Nha Trang
+                                                    (CXR)</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="swap-btn-circle" id="fSwapBtn"><i class="fas fa-exchange-alt "></i>
+                                    </div>
+                                    <div class="pill-divider"></div>
+                                    <div class="dropdown flex-grow-1 h-100 w-100">
+                                        <div class="pill-sub-input end-pill h-100 " data-bs-toggle="dropdown"><i
+                                                class="fas fa-plane-arrival text-primary fs-5  "></i>
+                                            <div class="input-display" id="fToText">Bangkok (BKKA)</div>
+                                        </div>
+                                        <ul class="dropdown-menu dropdown-menu-custom w-100">
+                                            <li><a class="dropdown-item"
+                                                    onclick="selectFlightLocation('to', 'Singapore (SIN)')">Singapore
+                                                    (SIN)</a></li>
+                                            <li><a class="dropdown-item"
+                                                    onclick="selectFlightLocation('to', 'Seoul (ICN)')">Seoul (ICN)</a>
+                                            </li>
+                                            <li><a class="dropdown-item"
+                                                    onclick="selectFlightLocation('to', 'Tokyo (NRT)')">Tokyo (NRT)</a>
+                                            </li>
+                                            <li><a class="dropdown-item"
+                                                    onclick="selectFlightLocation('to', 'Taipei (TPE)')">Taipei
+                                                    (TPE)</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-5 col-md-12 mb-2 mb-lg-0">
+                                <div class="d-flex mb-1">
+                                    <div class="input-label flex-fill">Ngày khởi hành</div>
+                                    <div class="input-label flex-fill ps-3"><input class="custom-checkbox me-1"
+                                            type="checkbox" id="flightRoundTrip" checked
+                                            onclick="toggleFlightReturn()"><label for="flightRoundTrip"
+                                            style="cursor:pointer">Khứ hồi</label></div>
+                                </div>
+                                <div class="dropdown">
+                                    <div class="pill-group-container" data-bs-toggle="dropdown"
+                                        data-bs-auto-close="outside" id="fDateTrigger">
+                                        <div class="pill-sub-input start-pill"><i
+                                                class="far fa-calendar-alt text-primary fs-5"></i>
+                                            <div class="input-display" id="fStartDateDisplay">28 thg 11 2025</div>
+                                        </div>
+                                        <div class="pill-divider"></div>
+                                        <div class="pill-sub-input end-pill" id="fReturnBox"><i
+                                                class="far fa-calendar-alt text-secondary fs-5" id="fReturnIcon"></i>
+                                            <div class="input-display text-muted" id="fEndDateDisplay">30 thg 11 2025
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="dropdown-menu dropdown-menu-custom calendar-dropdown mt-2 p-0">
+                                        <div class="d-flex p-3 gap-4">
+                                            <div class="w-50">
+                                                <div class="calendar-header" id="fMonthTitle1"></div>
+                                                <div id="fCalendarMonth1" class="calendar-days-grid"></div>
+                                            </div>
+                                            <div class="w-50">
+                                                <div class="calendar-header" id="fMonthTitle2"></div>
+                                                <div id="fCalendarMonth2" class="calendar-days-grid"></div>
+                                            </div>
+                                        </div>
+                                        <div class="p-3 border-top text-end"><button class="btn btn-primary btn-sm"
+                                                onclick="document.body.click()">Áp dụng</button></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-1 col-md-12 d-flex align-items-end "
+                                style="padding-left: 0 !important; margin-top: 33px;">
+                                <button class="search-btn-rounded" onclick="doSearch('flight')"><i
+                                        class="fas fa-search"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="hotel-section" style="display: none;">
+                        <div class="d-flex gap-2 mb-3">
+                            <button class="hotel-sub-pill active">Tất cả</button><button class="hotel-sub-pill">Khách
+                                sạn</button>
+                        </div>
+                        <div class="row g-0 align-items-end">
+                            <div class="col-lg-5 col-md-12 mb-2 mb-lg-0">
+                                <label class="input-label">Thành phố, địa điểm hoặc tên khách sạn:</label>
+                                <div class="dropdown h-100">
+                                    <div class="custom-input-box hotel-box-start" data-bs-toggle="dropdown"
+                                        data-bs-auto-close="outside">
+                                        <i class="fas fa-map-marker-alt text-primary fs-5"></i>
+                                        <input type="text" class="input-field-real"
+                                            placeholder="Thành phố, khách sạn..." id="hLocationInput" value="TP HCM">
+                                    </div>
+                                    <ul class="dropdown-menu dropdown-menu-custom w-100">
+                                        <li><a class="dropdown-item" onclick="setValue('hLocationInput', 'TP HCM')">TP
+                                                HCM</a></li>
+                                        <li><a class="dropdown-item" onclick="setValue('hLocationInput', 'Hà Nội')">Hà
+                                                Nội</a></li>
+                                        <li><a class="dropdown-item"
+                                                onclick="setValue('hLocationInput', 'Vũng Tàu')">Vũng Tàu</a></li>
+                                        <li><a class="dropdown-item" onclick="setValue('hLocationInput', 'Đà Lạt')">Đà
+                                                Lạt</a></li>
+                                        <li><a class="dropdown-item" onclick="setValue('hLocationInput', 'Đà Nẵng')">Đà
+                                                Nẵng</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6 mb-2 mb-lg-0">
+                                <label class="input-label">Ngày nhận & trả phòng</label>
+                                <div class="dropdown">
+                                    <div class="custom-input-box hotel-box-mid" data-bs-toggle="dropdown"
+                                        data-bs-auto-close="outside" id="hDateTrigger">
+                                        <i class="far fa-calendar-alt text-primary fs-5"></i>
+                                        <div class="input-display" id="hotelDateDisplay">Chọn ngày</div>
+                                    </div>
+                                    <div class="dropdown-menu dropdown-menu-custom calendar-dropdown mt-2 p-0">
+                                        <div class="d-flex p-3 gap-4">
+                                            <div class="w-50">
+                                                <div class="calendar-header" id="hMonthTitle1"></div>
+                                                <div id="hCalendarMonth1" class="calendar-days-grid"></div>
+                                            </div>
+                                            <div class="w-50">
+                                                <div class="calendar-header" id="hMonthTitle2"></div>
+                                                <div id="hCalendarMonth2" class="calendar-days-grid"></div>
+                                            </div>
+                                        </div>
+                                        <div class="p-3 border-top text-end"><button class="btn btn-primary btn-sm"
+                                                onclick="document.body.click()">Áp dụng</button></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6 mb-2 mb-lg-0">
+                                <label class="input-label">Khách và Phòng</label>
+                                <div class="dropdown">
+                                    <div class="custom-input-box hotel-box-mid" data-bs-toggle="dropdown"><i
+                                            class="fas fa-user-friends text-primary fs-5"></i>
+                                        <div class="input-display" id="hotelGuestText">2 người lớn, 1 phòng</div>
+                                    </div>
+                                    <div class="dropdown-menu dropdown-menu-custom p-0">
+                                        <div class="counter-row">
+                                            <div>
+                                                <div style="font-weight:600">Người lớn</div>
+                                            </div>
+                                            <div class="d-flex align-items-center gap-3">
+                                                <div class="btn-counter" onclick="updateHotelCount('adult', -1)">-</div>
+                                                <div class="count-display" id="hCountAdult">2</div>
+                                                <div class="btn-counter" onclick="updateHotelCount('adult', 1)">+</div>
+                                            </div>
+                                        </div>
+                                        <div class="p-2 bg-light text-end"><button class="btn btn-primary btn-sm w-100"
+                                                onclick="document.body.click()">Xong</button></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-1 col-md-12">
+                                <label class="input-label d-none d-lg-block">&nbsp;</label>
+                                <button class="search-btn-rounded hotel-search-btn" onclick="doSearch('hotel')"><i
+                                        class="fas fa-search"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Updated bus-section -->
+                    <div id="bus-section" style="display: none;">
+                        <div class="d-none d-lg-flex w-100 px-3 mb-1 flex-wrap">
+                            <div class="d-flex col-12 col-lg-5 mb-1 mb-lg-0">
+                                <div class="input-label flex-fill">Từ</div>
+                                <div class="input-label flex-fill">Đến</div>
+                            </div>
+                            <div class="d-flex col-12 col-lg-3 mb-1 mb-lg-0 ps-lg-3">
+                                <div class="input-label flex-fill">Ngày khởi hành</div>
+                                <div class="input-label flex-fill"><input class="custom-checkbox me-1" type="checkbox"
+                                        id="busRoundTrip" onclick="toggleBusReturn()"><label for="busRoundTrip"
+                                        style="cursor:pointer">Khứ hồi</label></div>
+                            </div>
+                            <div class="col-12 col-lg-3 ps-lg-3 input-label">Số ghế</div>
+                        </div>
+                        <div class="d-lg-none mb-1 px-3">
+                            <div class="input-label">Thông tin vé xe khách</div>
+                        </div>
+
+                        <div class="unified-search-bar">
+                            <div class="unified-item route-box position-relative">
+                                <div class="dropdown h-100 flex-grow-1 w-100">
+                                    <div class="d-flex align-items-center h-100 w-100" data-bs-toggle="dropdown">
+                                        <i class="fas fa-bus text-primary fs-5 me-2"></i>
+                                        <input type="text" class="input-field-real" placeholder="Nhập điểm đi"
+                                            id="bFromInput">
+                                    </div>
+                                    <ul class="dropdown-menu dropdown-menu-custom w-100">
+                                        <li><a class="dropdown-item" onclick="setValue('bFromInput', 'TP HCM')">TP
+                                                HCM</a></li>
+                                        <li><a class="dropdown-item" onclick="setValue('bFromInput', 'Đà Lạt')">Đà
+                                                Lạt</a></li>
+                                        <li><a class="dropdown-item" onclick="setValue('bFromInput', 'Vũng Tàu')">Vũng
+                                                Tàu</a></li>
+                                        <li><a class="dropdown-item" onclick="setValue('bFromInput', 'Cần Thơ')">Cần
+                                                Thơ</a></li>
+                                        <li><a class="dropdown-item" onclick="setValue('bFromInput', 'Rạch Giá')">Rạch
+                                                Giá</a></li>
+                                    </ul>
+                                </div>
+                                <div class="bus-swap-absolute" id="bSwapBtn"><i class="fas fa-exchange-alt"></i></div>
+                                <div class="dropdown h-100 flex-grow-1 ps-lg-4 w-100">
+                                    <div class="d-flex align-items-center h-100 w-100" data-bs-toggle="dropdown">
+                                        <i class="fas fa-bus text-primary fs-5 me-2"></i>
+                                        <input type="text" class="input-field-real" placeholder="Nhập điểm đến"
+                                            id="bToInput">
+                                    </div>
+                                    <ul class="dropdown-menu dropdown-menu-custom w-100">
+                                        <li><a class="dropdown-item" onclick="setValue('bToInput', 'Nha Trang')">Nha
+                                                Trang</a></li>
+                                        <li><a class="dropdown-item" onclick="setValue('bToInput', 'Phan Thiết')">Phan
+                                                Thiết</a></li>
+                                        <li><a class="dropdown-item" onclick="setValue('bToInput', 'Đà Nẵng')">Đà
+                                                Nẵng</a></li>
+                                        <li><a class="dropdown-item"
+                                                onclick="setValue('bToInput', 'Buôn Ma Thuột')">Buôn Ma Thuột</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="unified-divider"></div>
+                            <div class="unified-item date-box dropdown">
+                                <div class="d-flex w-100 h-100 align-items-center" data-bs-toggle="dropdown"
+                                    data-bs-auto-close="outside" id="bDateTrigger">
+                                    <div class="d-flex align-items-center flex-grow-1">
+                                        <i class="far fa-calendar-alt text-primary fs-5 me-2"></i>
+                                        <div class="input-display" id="bStartDateDisplay">27 thg 11 2025</div>
+                                    </div>
+                                    <div style="width:1px; height:20px; background:#eee; margin:0 10px;"
+                                        class="d-none d-lg-block"></div>
+                                    <div class="d-flex align-items-center flex-grow-1 mt-1 mt-lg-0" id="bReturnBox">
+                                        <div class="input-display text-muted" id="bEndDateDisplay"
+                                            style="font-weight: 500;">Chọn ngày về</div>
+                                    </div>
+                                </div>
+                                <div class="dropdown-menu dropdown-menu-custom calendar-dropdown mt-2 p-0">
+                                    <div class="d-flex p-3 gap-4">
+                                        <div class="w-50">
+                                            <div class="calendar-header" id="bMonthTitle1"></div>
+                                            <div id="bCalendarMonth1" class="calendar-days-grid"></div>
+                                        </div>
+                                        <div class="w-50">
+                                            <div class="calendar-header" id="bMonthTitle2"></div>
+                                            <div id="bCalendarMonth2" class="calendar-days-grid"></div>
+                                        </div>
+                                    </div>
+                                    <div class="p-3 border-top text-end"><button class="btn btn-primary btn-sm"
+                                            onclick="document.body.click()">Áp dụng</button></div>
+                                </div>
+                            </div>
+                            <div class="unified-divider"></div>
+                            <div class="unified-item seat-box dropdown">
+                                <div class="d-flex w-100 h-100 align-items-center" data-bs-toggle="dropdown">
+                                    <i class="fas fa-user text-primary fs-5 me-2"></i>
+                                    <div class="input-display" id="bSeatDisplay">1 Hành khách</div>
+                                </div>
+                                <ul class="dropdown-menu shadow border-0 mt-2">
+                                    <li><a class="dropdown-item" onclick="updateBusSeats(1)">1 Hành khách</a></li>
+                                    <li><a class="dropdown-item" onclick="updateBusSeats(2)">2 Hành khách</a></li>
+                                    <li><a class="dropdown-item" onclick="updateBusSeats(3)">3 Hành khách</a></li>
+                                </ul>
+                            </div>
+                            <button class="unified-search-btn" onclick="doSearch('bus')"><i
+                                    class="fas fa-search"></i></button>
+                        </div>
+                    </div>
+
+                    <!-- Updated transfer-section -->
+                    <div id="transfer-section" style="display: none;">
+                        <div class="d-none d-lg-flex w-100 px-3 mb-1 flex-wrap">
+                            <div class="d-flex col-12 col-lg-5 mb-1 mb-lg-0">
+                                <div class="input-label flex-fill">Từ sân bay</div>
+                                <div class="input-label flex-fill ps-4">Đến</div>
+                            </div>
+                            <div class="col-12 col-lg-3 ps-lg-3 input-label">Ngày đón</div>
+                            <div class="col-12 col-lg-2 ps-lg-3 input-label">Giờ đón</div>
+                        </div>
+                        <div class="d-lg-none mb-1 px-3">
+                            <div class="input-label">Thông tin đưa đón sân bay</div>
+                        </div>
+
+                        <div class="unified-search-bar">
+                            <div class="unified-item transfer-route-box position-relative">
+                                <div class="dropdown h-100 flex-grow-1 w-100">
+                                    <div class="d-flex align-items-center h-100 w-100" data-bs-toggle="dropdown">
+                                        <i class="fas fa-plane-arrival text-primary fs-5 me-2"></i>
+                                        <input type="text" class="input-field-real"
+                                            placeholder="Ví dụ Sân bay quốc tế Narita" id="tFromInput">
+                                    </div>
+                                    <ul class="dropdown-menu dropdown-menu-custom w-100">
+                                        <li><a class="dropdown-item"
+                                                onclick="setValue('tFromInput', 'Sân bay Tân Sơn Nhất (SGN)')">Sân bay
+                                                Tân Sơn Nhất (SGN)</a></li>
+                                        <li><a class="dropdown-item"
+                                                onclick="setValue('tFromInput', 'Sân bay Nội Bài (HAN)')">Sân bay Nội
+                                                Bài (HAN)</a></li>
+                                        <li><a class="dropdown-item"
+                                                onclick="setValue('tFromInput', 'Sân bay Đà Nẵng (DAD)')">Sân bay Đà
+                                                Nẵng (DAD)</a></li>
+                                        <li><a class="dropdown-item"
+                                                onclick="setValue('tFromInput', 'Sân bay Narita (NRT)')">Sân bay Narita
+                                                (NRT)</a></li>
+                                    </ul>
+                                </div>
+
+                                <div class="bus-swap-absolute" id="tSwapBtn"><i class="fas fa-exchange-alt"></i></div>
+
+                                <div class="dropdown h-100 flex-grow-1 ps-lg-4 w-100">
+                                    <div class="d-flex align-items-center h-100 w-100" data-bs-toggle="dropdown">
+                                        <i class="fas fa-map-marker-alt text-primary fs-5 me-2"></i>
+                                        <input type="text" class="input-field-real"
+                                            placeholder="Ví dụ Trung tâm mua sắm AEON" id="tToInput">
+                                    </div>
+                                    <ul class="dropdown-menu dropdown-menu-custom w-100">
+                                        <li><a class="dropdown-item"
+                                                onclick="setValue('tToInput', 'Quận 1, TP HCM')">Quận 1, TP HCM</a></li>
+                                        <li><a class="dropdown-item"
+                                                onclick="setValue('tToInput', 'Phố Cổ, Hà Nội')">Phố Cổ, Hà Nội</a></li>
+                                        <li><a class="dropdown-item"
+                                                onclick="setValue('tToInput', 'Bãi Sau, Vũng Tàu')">Bãi Sau, Vũng
+                                                Tàu</a></li>
+                                        <li><a class="dropdown-item"
+                                                onclick="setValue('tToInput', 'Quận 7, TP HCM')">Quận 7, TP HCM</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="unified-divider"></div>
+                            <div class="unified-item transfer-date-box dropdown">
+                                <div class="d-flex w-100 h-100 align-items-center" data-bs-toggle="dropdown"
+                                    data-bs-auto-close="outside" id="tDateTrigger">
+                                    <i class="far fa-calendar-alt text-primary fs-5 me-2"></i>
+                                    <div class="input-display" id="tDateDisplay">28 thg 11 2025</div>
+                                </div>
+                                <div class="dropdown-menu dropdown-menu-custom calendar-dropdown mt-2 p-0">
+                                    <div class="d-flex p-3 gap-4">
+                                        <div class="w-50">
+                                            <div class="calendar-header" id="tMonthTitle1"></div>
+                                            <div id="tCalendarMonth1" class="calendar-days-grid"></div>
+                                        </div>
+                                        <div class="w-50">
+                                            <div class="calendar-header" id="tMonthTitle2"></div>
+                                            <div id="tCalendarMonth2" class="calendar-days-grid"></div>
+                                        </div>
+                                    </div>
+                                    <div class="p-3 border-top text-end"><button class="btn btn-primary btn-sm"
+                                            onclick="document.body.click()">Áp dụng</button></div>
+                                </div>
+                            </div>
+                            <div class="unified-divider"></div>
+                            <div class="unified-item transfer-time-box dropdown">
+                                <div class="d-flex w-100 h-100 align-items-center" data-bs-toggle="dropdown">
+                                    <i class="far fa-clock text-primary fs-5 me-2"></i>
+                                    <div class="input-display" id="tTimeDisplay">01:30</div>
+                                </div>
+                                <ul class="dropdown-menu shadow border-0 mt-2"
+                                    style="max-height: 300px; overflow-y:auto;">
+                                    <li><a class="dropdown-item"
+                                            onclick="document.getElementById('tTimeDisplay').innerText='00:00'">00:00</a>
+                                    </li>
+                                    <li><a class="dropdown-item"
+                                            onclick="document.getElementById('tTimeDisplay').innerText='01:00'">01:00</a>
+                                    </li>
+                                    <li><a class="dropdown-item"
+                                            onclick="document.getElementById('tTimeDisplay').innerText='02:00'">02:00</a>
+                                    </li>
+                                    <li><a class="dropdown-item"
+                                            onclick="document.getElementById('tTimeDisplay').innerText='12:00'">12:00</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <button class="unified-search-btn" onclick="doSearch('transfer')"><i
+                                    class="fas fa-search"></i></button>
+                        </div>
+                    </div>
+
+                    <!-- Updated car-section -->
+                    <div id="car-section" style="display: none;">
+                        <div class="d-flex gap-2 mb-3">
+                            <button class="btn-toggle-car active"> <i class="fas fa-car-side"></i> Tự lái</button>
+                            <button class="btn-toggle-car"> <i class="fas fa-user-tie"></i> Có tài xế</button>
+                        </div>
+
+                        <div class="d-none d-lg-flex w-100 px-3 mb-1">
+                            <div style="flex: 2.2" class="input-label">Địa điểm thuê xe của bạn</div>
+                            <div style="flex: 1.2" class="input-label">Ngày bắt đầu</div>
+                            <div style="flex: 0.8" class="input-label">Giờ bắt đầu</div>
+                            <div style="flex: 1.2" class="input-label">Ngày kết thúc</div>
+                            <div style="flex: 0.8" class="input-label">Giờ kết thúc</div>
+                            <div style="width: 60px"></div>
+                        </div>
+                        <div class="d-lg-none mb-1 px-3">
+                            <div class="input-label">Thông tin thuê xe</div>
+                        </div>
+
+                        <div class="unified-search-bar">
+                            <div class="unified-item car-location-box">
+                                <div class="d-flex align-items-center w-100 h-100">
+                                    <i class="fas fa-map-marker-alt text-primary fs-5 me-2"></i>
+                                    <input type="text" class="input-field-real" placeholder="Điền thành phố, sân bay"
+                                        id="cLocationInput">
+                                </div>
+                            </div>
+                            <div class="unified-divider"></div>
+                            <div class="unified-item car-date-box dropdown">
+                                <div class="d-flex align-items-center w-100 h-100" data-bs-toggle="dropdown"
+                                    data-bs-auto-close="outside" id="cDateTrigger">
+                                    <i class="far fa-calendar-alt text-primary fs-5 me-2"></i>
+                                    <div class="input-display" id="cStartDateDisplay">29 thg 11 2025</div>
+                                </div>
+                                <div class="dropdown-menu dropdown-menu-custom calendar-dropdown mt-2 p-0">
+                                    <div class="d-flex p-3 gap-4">
+                                        <div class="w-50">
+                                            <div class="calendar-header" id="cMonthTitle1"></div>
+                                            <div id="cCalendarMonth1" class="calendar-days-grid"></div>
+                                        </div>
+                                        <div class="w-50">
+                                            <div class="calendar-header" id="cMonthTitle2"></div>
+                                            <div id="cCalendarMonth2" class="calendar-days-grid"></div>
+                                        </div>
+                                    </div>
+                                    <div class="p-3 border-top text-end"><button class="btn btn-primary btn-sm"
+                                            onclick="document.body.click()">Áp dụng</button></div>
+                                </div>
+                            </div>
+                            <div class="unified-divider"></div>
+                            <div class="unified-item car-time-box dropdown">
+                                <div class="d-flex align-items-center w-100 h-100" data-bs-toggle="dropdown">
+                                    <i class="far fa-clock text-primary fs-5 me-2"></i>
+                                    <div class="input-display" id="cStartTimeDisplay">09:00</div>
+                                </div>
+                                <ul class="dropdown-menu shadow border-0 mt-2"
+                                    style="max-height: 300px; overflow-y:auto;">
+                                    <li><a class="dropdown-item" onclick="updateCarTime('start', '08:00')">08:00</a>
+                                    </li>
+                                    <li><a class="dropdown-item" onclick="updateCarTime('start', '09:00')">09:00</a>
+                                    </li>
+                                    <li><a class="dropdown-item" onclick="updateCarTime('start', '10:00')">10:00</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="unified-divider"></div>
+                            <div class="unified-item car-date-box dropdown">
+                                <div class="d-flex align-items-center w-100 h-100" data-bs-toggle="dropdown"
+                                    data-bs-auto-close="outside">
+                                    <i class="far fa-calendar-alt text-primary fs-5 me-2"></i>
+                                    <div class="input-display" id="cEndDateDisplay">1 thg 12 2025</div>
+                                </div>
+                                <div class="dropdown-menu dropdown-menu-custom calendar-dropdown mt-2 p-0">
+                                    <div class="d-flex p-3 gap-4">
+                                        <div class="w-50">
+                                            <div class="calendar-header" id="c2MonthTitle1"></div>
+                                            <div id="c2CalendarMonth1" class="calendar-days-grid"></div>
+                                        </div>
+                                        <div class="w-50">
+                                            <div class="calendar-header" id="c2MonthTitle2"></div>
+                                            <div id="c2CalendarMonth2" class="calendar-days-grid"></div>
+                                        </div>
+                                    </div>
+                                    <div class="p-3 border-top text-end"><button class="btn btn-primary btn-sm"
+                                            onclick="document.body.click()">Áp dụng</button></div>
+                                </div>
+                            </div>
+                            <div class="unified-divider"></div>
+                            <div class="unified-item car-time-box dropdown">
+                                <div class="d-flex align-items-center w-100 h-100" data-bs-toggle="dropdown">
+                                    <i class="far fa-clock text-primary fs-5 me-2"></i>
+                                    <div class="input-display" id="cEndTimeDisplay">09:00</div>
+                                </div>
+                                <ul class="dropdown-menu shadow border-0 mt-2"
+                                    style="max-height: 300px; overflow-y:auto;">
+                                    <li><a class="dropdown-item" onclick="updateCarTime('end', '08:00')">08:00</a></li>
+                                    <li><a class="dropdown-item" onclick="updateCarTime('end', '09:00')">09:00</a></li>
+                                    <li><a class="dropdown-item" onclick="updateCarTime('end', '21:00')">21:00</a></li>
+                                </ul>
+                            </div>
+                            <button class="unified-search-btn" onclick="doSearch('car')"><i
+                                    class="fas fa-search"></i></button>
+                        </div>
+                    </div>
+
+                    <!-- Activity section -->
+                    <div id="activity-section" style="display: none;">
+                        <div class="d-flex flex-column flex-lg-row gap-3 align-items-center mb-4">
+                            <div class="position-relative flex-grow-1 w-100">
+                                <div class="unified-search-bar" style="overflow: hidden;">
+                                    <div class="d-flex align-items-center w-100 h-100 px-3">
+                                        <i class="fas fa-search text-secondary me-3"></i>
+                                        <input type="text" class="input-field-real"
+                                            placeholder="Bạn có ý tưởng gì cho chuyến đi tiếp theo không?">
+                                    </div>
+                                    <button class="unified-search-btn" style="width: 60px; border-radius: 0;"><i
+                                            class="fas fa-search"></i></button>
+                                </div>
+                            </div>
+                            <button class="btn-explore">
+                                <i class="fas fa-map-marker-alt"></i><span>Tôi vẫn chưa biết đi đâu</span><i
+                                    class="fas fa-arrow-right ms-1"></i>
+                            </button>
+                        </div>
+                        <div class="text-center mb-2"><small class="text-white fw-bold text-shadow">Hoặc chọn một danh
+                                mục để mở khóa trải nghiệm tiếp theo của bạn</small></div>
+                        <div class="d-flex flex-wrap justify-content-center gap-2">
+                            <button class="act-pill"><i class="fas fa-ticket-alt text-danger"></i> Điểm tham
+                                quan</button>
+                            <button class="act-pill"><i class="fas fa-spa text-success"></i> Spa & Thư giãn</button>
+                            <button class="act-pill"><i class="fas fa-flag text-warning"></i> Tour</button>
+                            <button class="act-pill"><i class="fas fa-running text-info"></i> Thể thao giải trí</button>
+                            <button class="act-pill"><i class="fas fa-gamepad text-primary"></i> Trò chơi & Hoạt
+                                động</button>
+                            <button class="act-pill"><i class="fas fa-bus text-secondary"></i> Phương tiện di
+                                chuyển</button>
+                            <button class="act-pill"><i class="fas fa-wifi"></i> Cần thiết cho du lịch</button>
+                            <button class="act-pill"><i class="fas fa-utensils text-warning"></i> Trải nghiệm ẩm
+                                thực</button>
+                        </div>
+                    </div>
+
+                    <div class="bottom-links">
+                        <a href="#" class="bottom-link"><i class="fas fa-search"></i> Tìm kiếm gần đây</a>
+                        <a href="#" class="bottom-link"><i class="fas fa-globe"></i> Khám phá ý tưởng</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="modal fade" id="otherServicesModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content border-0 rounded-4 shadow-lg p-3">
+                    <div class="modal-header border-0 pb-0">
+                        <h5 class="modal-title fw-bold">Sản phẩm khác</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body pt-2">
+                        <a href="#" class="modal-item-box w-100 mb-4" style="max-width: 300px;">
+                            <div class="modal-icon-circle bg-light text-primary"><i class="fas fa-plane-shield"></i>
+                            </div>
+                            <div class="item-text">Bảo hiểm du lịch</div>
+                        </a>
+                        <h5 class="modal-other-title">Các hoạt động để thử</h5>
+                        <div class="row g-3">
+                            <div class="col-md-4 col-6"><a href="#" class="modal-item-box">
+                                    <div class="modal-icon-circle icon-pink"><i class="fas fa-spa"></i></div>
+                                    <div class="item-text">Làm đẹp & Spa</div>
+                                </a></div>
+                            <div class="col-md-4 col-6"><a href="#" class="modal-item-box">
+                                    <div class="modal-icon-circle icon-orange"><i class="fas fa-horse-head"></i></div>
+                                    <div class="item-text">Sân chơi</div>
+                                </a></div>
+                            <div class="col-md-4 col-6"><a href="#" class="modal-item-box">
+                                    <div class="modal-icon-circle icon-purple"><i class="fas fa-lightbulb"></i></div>
+                                    <div class="item-text">Lớp học</div>
+                                </a></div>
+                            <div class="col-md-4 col-6"><a href="#" class="modal-item-box">
+                                    <div class="modal-icon-circle icon-blue"><i class="fas fa-ticket-alt"></i></div>
+                                    <div class="item-text">Events</div>
+                                </a></div>
+                            <div class="col-md-4 col-6"><a href="#" class="modal-item-box">
+                                    <div class="modal-icon-circle icon-orange"><i class="fas fa-camera"></i></div>
+                                    <div class="item-text">Tham quan</div>
+                                </a></div>
+                            <div class="col-md-4 col-6"><a href="#" class="modal-item-box">
+                                    <div class="modal-icon-circle icon-pink"><i class="fas fa-flag"></i></div>
+                                    <div class="item-text">Tour</div>
+                                </a></div>
+                            <div class="col-md-4 col-6"><a href="#" class="modal-item-box">
+                                    <div class="modal-icon-circle icon-pink"><i class="fas fa-ship"></i></div>
+                                    <div class="item-text">Du thuyền</div>
+                                </a></div>
+                        </div>
+                        <h5 class="modal-other-title mt-3">Khác</h5>
+                        <div class="row">
+                            <div class="col-md-4"><a href="#" class="modal-item-box">
+                                    <div class="modal-icon-circle icon-pink"><i class="fas fa-gift"></i></div>
+                                    <div class="item-text">Phiếu quà tặng</div>
+                                </a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <script src="../WebDuLich/bootstrap-5.3.8-dist/bootstrap-5.3.8-dist/js/bootstrap.bundle.js"></script>
+    <script src="../WebDuLich/js/h-f.js"></script>
+</body>
+
+</html>

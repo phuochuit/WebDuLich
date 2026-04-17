@@ -1,0 +1,151 @@
+/* Thiết lập chung */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Google Sans', 'Segoe UI', Roboto, Arial, sans-serif;
+    background-color: #fff;
+}
+
+/* --- Hero Banner --- */
+.hero-banner {
+    position: relative;
+    width: 100%;
+}
+
+.banner-bg {
+    width: 100%;
+    height: 450px; /* Chiều cao phần nền */
+    object-fit: cover;
+    filter: brightness(0.9);
+    position: absolute;
+    top: 0; left: 0; z-index: 0;
+}
+
+.banner-content {
+    position: relative;
+    z-index: 1;
+    padding-top: 40px; /* Đẩy ảnh banner chính xuống */
+    padding-bottom: 40px;
+}
+
+.banner-main-img {
+    max-width: 90%;
+    width: 1100px;
+    height: auto;
+    border: 4px solid rgba(255,255,255,0.3);
+}
+
+/* --- Tiêu đề Section --- */
+.section-title {
+    color: #03121a;
+    font-weight: 700;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* --- Nav Tabs (Chặng bay/Khách sạn...) --- */
+.nav-tabs {
+    border-bottom: 2px solid #f2f3f3;
+}
+
+.nav-tabs .nav-link {
+    border: none;
+    color: #687176;
+    font-weight: 700;
+    font-size: 16px;
+    margin-right: 24px;
+    padding: 0 0 12px 0;
+    background: none;
+}
+
+.nav-tabs .nav-link:hover {
+    color: #0194f3;
+}
+
+.nav-tabs .nav-link.active {
+    color: #0194f3;
+    border-bottom: 3px solid #0194f3;
+    background: none;
+}
+
+/* Links SEO */
+.seo-link {
+    font-size: 15px;
+    color: #03121a;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 12px;
+    transition: color 0.2s;
+}
+.seo-link:hover {
+    color: #0194f3;
+}
+
+/* --- Coupon Card --- */
+.coupon-card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    transition: transform 0.2s;
+    border: 1px solid #f0f0f0;
+}
+
+.coupon-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.12);
+}
+
+.coupon-code {
+    background-color: #e5f7ff;
+    color: #0194f3;
+    font-weight: 700;
+    font-size: 12px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+/* --- Product Card (Disney, Khách sạn...) --- */
+.product-card {
+    display: block;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    text-decoration: none;
+    height: 100%;
+    transition: transform 0.2s;
+    overflow: hidden;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+}
+
+.img-wrapper {
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+}
+
+.img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+
+.product-card:hover .img-wrapper img {
+    transform: scale(1.05);
+}
+
+/* Giới hạn số dòng cho tiêu đề dài */
+.title-clamp {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: 40px; /* Chiều cao cố định cho 2 dòng */
+}

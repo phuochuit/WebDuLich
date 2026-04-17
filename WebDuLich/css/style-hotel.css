@@ -1,0 +1,445 @@
+body{
+    padding: 0;
+    margin: 0;
+}
+/*Form*/
+/* --- KHUNG FORM TRẮNG --- */
+.search-container {
+    width: 80%;
+    max-width: 800px;
+    margin: -20px auto 40px;
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* --- TAB --- */
+.tab {
+    font-weight: bold;
+    padding-bottom: 15px;
+    color: #0078ff;
+}
+
+.tab i {
+    margin-right: 5px;
+}
+
+/* --- NHÃN --- */
+label {
+    font-weight: bold;
+    display: block;
+    margin: 12px 0 5px;
+}
+
+/* --- Ô INPUT CÓ ICON --- */
+ .input-wrap {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 8px;
+    background: #fff;
+}
+
+/* Cho input và select = full width */
+.input-wrap input,
+.input-wrap select {
+    border: none;
+    outline: none;
+    width: 100%;
+}
+
+/* --- Ô TRẢ PHÒNG HIỂN THỊ --- */
+.output {
+    padding: 0 12px;
+    background: #f7f7f7;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+
+    height: 42px;              /* bằng với input/select */
+    display: flex;             
+    align-items: center;        /* căn giữa theo chiều dọc */
+    font-size: 14px;
+}
+
+/* --- HÀNG CHIA 3 CỘT --- */
+.row {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.col {
+    flex: 1;
+}
+
+
+/* --- LINK THANH TOÁN --- */
+.payment-link {
+    margin: 15px 0;
+    color: #007bff;
+    font-weight: bold;
+}
+
+.payment-link i {
+    margin-right: 6px;
+}
+
+/* --- NÚT TÌM KIẾM --- */
+.btn-search {
+    width: 100%;
+    background: #ff6200;
+    color: white;
+    padding: 15px;
+    font-size: 18px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.btn-search:hover {
+    background: #e95a00;
+}
+/*--- số lượng khách---*/
+.guest-select {
+    position: relative;
+    width: 100%;
+}
+
+.guest-display {
+    border: 1px solid #ccc;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+}
+
+.guest-display i {
+    margin-right: 6px;
+}
+
+.guest-display .arrow {
+    margin-left: auto;
+}
+
+.guest-popup {
+    display: none;
+    position: absolute;
+    width: 100%;
+    top: 55px;
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    z-index: 20;
+}
+
+.row-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.item-title i {
+    margin-right: 8px;
+}
+
+.counter {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.counter button {
+    width: 35px;
+    height: 35px;
+    border: 1px solid #ccc;
+    background: #f6f6f6;
+    border-radius: 8px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.counter span {
+    width: 20px;
+    text-align: center;
+    font-size: 18px;
+}
+
+.done-btn {
+    text-align: right;
+    color: #007bff;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+/*Banner*/
+.banner {
+    position: relative;
+    width: 100%;
+    height: 320px;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.banner-bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/*tab coupon*/
+.title {
+    margin-top: 20px;
+    font-size: 26px;
+    font-weight: 700;
+    margin-left: 50px;
+    
+}
+
+.subtitle {
+    margin-top: 5px;
+    color: #777;
+    margin-left: 50px;
+}
+
+/* --- Tabs --- */
+.tabs {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+    margin-left: 50px;
+}
+
+.tab {
+    padding: 8px 18px;
+    border-radius: 20px;
+    border: none;
+    background: #e7f2ff;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.2s;
+    
+}
+
+.tab.active {
+    background: #0091ff;
+    color: white;
+}
+
+/* --- Slider --- */
+.coupon-slider {
+    margin-top: 25px;
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    padding-bottom: 10px;
+    scroll-snap-type: x mandatory;
+    margin-left: 50px;
+}
+
+.coupon-slider::-webkit-scrollbar {
+    height: 6px;
+}
+
+/* Cards */
+.coupon-card {
+    flex: 0 0 320px;
+    background: white;
+    padding: 18px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    position: relative;
+    scroll-snap-align: start;
+}
+
+.soon {
+    background: #ffcc75;
+    color: #805300;
+    padding: 4px 10px;
+    font-size: 11px;
+    border-radius: 5px;
+    position: absolute;
+    top: -8px;
+    left: 10px;
+}
+
+.card-header {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+}
+
+.icon {
+    width: 40px;
+}
+
+.card-header h3 {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.card-header p {
+    font-size: 13px;
+    color: #666;
+}
+
+/* --- Code box --- */
+.code-box {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+    background: #f0f8ff;
+    padding: 10px 12px;
+    border-radius: 10px;
+    align-items: center;
+}
+
+.code {
+    font-weight: 600;
+    color: #333;
+}
+
+.copy-btn {
+    background: #cde9ff;
+    border: none;
+    padding: 6px 16px;
+    border-radius: 15px;
+    cursor: pointer;
+    color: #007bff;
+    font-weight: 600;
+}
+
+.copy-btn:hover {
+    background: #b5ddff;
+}
+.coupon-list {
+    display: none;
+}
+.coupon-list.active {
+    display: block;
+}
+
+/* hotels */
+    .hotels-section { 
+    margin: 22px 0; 
+    max-width:980px; 
+    margin-left:auto; 
+    margin-right:auto; }
+    .hotels-tabs { 
+    display:flex; 
+    gap:12px; 
+    margin-bottom:12px; 
+    flex-wrap:wrap; }
+    .hotels-tabs .tab { 
+    padding:8px 14px; 
+    border-radius:20px; 
+    background:#f2f9ff; 
+    color:#1565c0; 
+    cursor:pointer; }
+    .hotels-tabs .tab.active { 
+    background:#0b6bd6; 
+    color:#fff; }
+
+    .hotel-list {
+      display:flex;
+      gap:20px;
+      overflow-x:auto;
+      padding-bottom:10px;
+      align-items:flex-start;
+    }
+    .hotel-list::-webkit-scrollbar { height:8px; }
+    .hotel-list::-webkit-scrollbar-thumb { 
+    background-color:rgba(0,0,0,0.12); 
+    border-radius:6px; }
+
+    .hotel-card {
+      position: relative;
+      width: 280px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      overflow: hidden;
+      margin: 0;
+      flex-shrink: 0;
+      display: block;
+    }
+    .hotel-card img { 
+        width:100%; 
+        height:180px; 
+        object-fit:cover; 
+        display:block; }
+    .hotel-card .location, .hotel-card .discount {
+      position:absolute; 
+      top:8px; 
+      padding:4px 8px;
+      border-radius:6px; 
+      font-size:12px; 
+      color:#fff;
+    }
+    .hotel-card .location { 
+        left:8px; 
+        background:rgba(0,0,0,0.7); }
+    .hotel-card .discount { 
+        right:8px; 
+        background:orange; 
+        font-weight:bold; }
+
+    .hotel-info { padding:12px; }
+    .hotel-info h3 { 
+        font-size:16px; 
+        margin:0 0 6px; }
+    .hotel-info .stars { 
+        color:gold; 
+        margin-bottom:4px; }
+    .hotel-info .rating { 
+        font-size:14px; 
+        margin-bottom:6px; 
+        color:#007bff; }
+    .price-old { 
+        text-decoration: line-through; 
+        font-size:13px; 
+        color:#999; 
+        display:block; }
+    .price-new { 
+        color:#ff3b30; 
+        font-weight:bold; 
+        font-size:16px; 
+        margin:4px 0; 
+        display:block; }
+    .note { 
+        font-size:12px; 
+        color:#555; }
+
+    .coupon-filter-btn.active {
+    background-color: #0d6efd !important;
+    color: #fff !important;
+    border-color: #0d6efd !important;
+}
+
+.partners {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.partners-left {
+    flex: 1;
+    margin-left: 50px;
+}
+
+.partners-right img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 10px;
+    margin-right:200px;
+
+}

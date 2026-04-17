@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Đặt phòng khách sạn</title>
+  <link rel="stylesheet" href="../WebDuLich/css/style-hotel.css">
+  <link rel="stylesheet" href="bootstrap-5.3.8-dist/bootstrap-5.3.8-dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="../WebDuLich/css/h-f.css">
+</head>
+
+<body>
+  <iframe src="header.html" style="width: 100%; height: 650px; border: none; overflow: hidden;"></iframe>
+  <div class="search-container">
+    <div class="tab">
+      <i class="fa fa-search"></i>
+      Khách sạn xem gần đây
+    </div>
+    <div class="form-section">
+
+      <label>Thành phố, địa điểm hoặc tên khách sạn:</label>
+      <div class="input-wrap">
+        <i class="fa fa-location-dot"></i>
+        <input type="text" placeholder="Thành phố, khách sạn, điểm đến">
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <label>Nhận phòng:</label>
+          <div class="input-wrap">
+            <i class="fa fa-calendar"></i>
+            <input type="date" id="checkin">
+          </div>
+        </div>
+
+        <div class="col">
+          <label>Số đêm:</label>
+          <div class="input-wrap">
+            <i class="fa fa-moon"></i>
+            <select id="nights">
+              <option value="1">1 đêm</option>
+              <option value="2">2 đêm</option>
+              <option value="3">3 đêm</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="col">
+          <label>Trả phòng:</label>
+          <div class="output" id="checkout">--</div>
+        </div>
+      </div>
+
+      <label>Khách và Phòng</label>
+      <div class="input-wrap">
+        <i class="fa fa-user-group"></i>
+        <div class="guest-select">
+          <div class="guest-display" id="guestDisplay">
+
+            <span id="guestText">2 người lớn, 0 Trẻ em, 1 phòng</span>
+            <i class="fa fa-chevron-down arrow"></i>
+          </div>
+
+          <div class="guest-popup" id="guestPopup">
+
+            <div class="row-item">
+              <div class="item-title"><i class="fa fa-user"></i> Người lớn</div>
+              <div class="counter">
+                <button class="minus" data-type="adult">−</button>
+                <span id="adult">2</span>
+                <button class="plus" data-type="adult">+</button>
+              </div>
+            </div>
+
+            <div class="row-item">
+              <div class="item-title"><i class="fa fa-child"></i> Trẻ em</div>
+              <div class="counter">
+                <button class="minus" data-type="child">−</button>
+                <span id="child">0</span>
+                <button class="plus" data-type="child">+</button>
+              </div>
+            </div>
+
+            <div class="row-item">
+              <div class="item-title"><i class="fa fa-door-open"></i> Phòng</div>
+              <div class="counter">
+                <button class="minus" data-type="room">−</button>
+                <span id="room">1</span>
+                <button class="plus" data-type="room">+</button>
+              </div>
+            </div>
+
+            <div class="done-btn" id="doneBtn">Xong</div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="payment-link">
+        <i class="fa fa-money-bill"></i> Thanh Toán Tại Khách Sạn
+      </div>
+
+      <button class="btn-search">
+        <i class="fa fa-search"></i> Tìm kiếm
+      </button>
+    </div>
+
+  </div>
+
+  <div class="banner">
+    <img src="../WebDuLich/images/banner.jpg" class="banner-bg">
+  </div>
+
+  <h2 class="title">Mã giảm cho bạn</h2>
+  <p class="subtitle">Chỉ áp dụng trên App!</p>
+
+  <div class="tabs">
+    <button class="tab active" data-tab="hot">Mã giảm hot</button>
+    <button class="tab" data-tab="bank">Ngân hàng</button>
+    <button class="tab" data-tab="zalo">Zalo Pay</button>
+    <button class="tab" data-tab="destination">Điểm đến hot</button>
+  </div>
+
+  <div class="coupon-list active" id="hot">
+
+    <div class="coupon-slider">
+      <div class="coupon-card">
+        <span class="soon">Sắp hết mã</span>
+        <div class="card-header">
+          <img src="https://cdn-icons-png.flaticon.com/512/3103/3103479.png" class="icon">
+          <div>
+            <h3>Giảm đến 600k quốc tế</h3>
+            <p>Giảm 2% đơn từ 5 triệu</p>
+          </div>
+        </div>
+        <div class="code-box">
+          <span class="code">VIVUQUOTE</span>
+          <button class="copy-btn" onclick="copyCode('VIVUQUOTE')">Copy</button>
+        </div>
+      </div>
+
+      <div class="coupon-card">
+        <span class="soon">Sắp hết mã</span>
+        <div class="card-header">
+          <img src="https://cdn-icons-png.flaticon.com/512/3103/3103479.png" class="icon">
+          <div>
+            <h3>Giảm đến 200k nội địa</h3>
+            <p>Giảm 1% từ 2.2 triệu</p>
+          </div>
+        </div>
+        <div class="code-box">
+          <span class="code">KSVNCHILL</span>
+          <button class="copy-btn" onclick="copyCode('KSVNCHILL')">Copy</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="coupon-list" id="bank">
+
+    <div class="coupon-slider">
+      <div class="coupon-card">
+        <span class="soon">Sắp hết mã</span>
+        <div class="card-header">
+          <img src="../WebDuLich/images/seabank.jpg" class="icon">
+          <div>
+            <h3>Giảm giá 300k VNĐ</h3>
+            <p>Giao dịch tối thiểu 5 triệu VND<br>bằng thẻ tín dụng SeaBank</p>
+          </div>
+        </div>
+        <div class="code-box">
+          <span class="code">SB300</span>
+          <button class="copy-btn" onclick="copyCode('SB300')">Copy</button>
+        </div>
+      </div>
+
+      <div class="coupon-card">
+        <span class="soon">Sắp hết mã</span>
+        <div class="card-header">
+          <img src="../WebDuLich/images/acb.jpg" class="icon">
+          <div>
+            <h3>Giảm 150k </h3>
+            <p>Giao dịch tối thiểu 2 triệu đồng<br>cho thẻ ACB Visa</p>
+          </div>
+        </div>
+        <div class="code-box">
+          <span class="code">ACBSTAY200</span>
+          <button class="copy-btn" onclick="copyCode('ACBSTAY200')">Copy</button>
+        </div>
+      </div>
+
+      <div class="coupon-card">
+
+        <div class="card-header">
+          <img src="../WebDuLich/images/exim.jpg" class="icon">
+          <div>
+            <h3>Giảm giá 200k VND</h3>
+            <p>Giao dịch tối thiểu 2 triệu đồng<br>cho thẻ tín dụng Eximbank</p>
+          </div>
+        </div>
+        <div class="code-box">
+          <span class="code">EXIMHT200</span>
+          <button class="copy-btn" onclick="copyCode('EXIMHT200')">Copy</button>
+        </div>
+      </div>
+
+      <div class="coupon-card">
+        <span class="soon">hết mã</span>
+        <div class="card-header">
+          <img src="../WebDuLich/images/k.jpg" class="icon">
+          <div>
+            <h3>Giảm giá 150k VND</h3>
+            <p>Giao dịch tối thiểu 1 triệu đồng<br>sử dụng tất cả thẻ tín dụng KBank...</p>
+          </div>
+        </div>
+        <div class="code-box">
+          <span class="code">KBANKHOTEL25</span>
+          <button class="copy-btn" onclick="copyCode('KBANKHOTEL25')">Copy</button>
+        </div>
+      </div>
+
+      <div class="coupon-card">
+        <span class="soon">hết mã</span>
+        <div class="card-header">
+          <img src="../WebDuLich/images/BIDV.jpg" class="icon">
+          <div>
+            <h3>Giảm giá 300k VND</h3>
+            <p>Giao dịch tối thiểu 1.5 triệu đồng<br>khi sử dụng thẻ BIDV World Travel</p>
+          </div>
+        </div>
+        <div class="code-box">
+          <span class="code">BIDVMCKS</span>
+          <button class="copy-btn" onclick="copyCode('BIDVMCKS')">Copy</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="coupon-list" id="zalo">
+
+    <div class="coupon-slider">
+      <div class="coupon-card">
+        <div class="card-header">
+          <img src="../WebDuLich/images/zalo-logo.jpg" class="icon">
+          <div>
+            <h3>Ưu Đãi TẾT: Tiết kiệm Ngay<br>500k VND!</h3>
+            <p>Giao dịch tối thiệu 3.5 triệu VNĐ<br>khi thanh toán bằng Zalopay</p>
+          </div>
+        </div>
+        <div class="code-box">
+          <span class="code">ZLPTET2026</span>
+          <button class="copy-btn" onclick="copyCode('ZLPTET2026')">Copy</button>
+        </div>
+      </div>
+
+      <div class="coupon-card">
+        <div class="card-header">
+          <span class="soon">Sắp hết mã</span>
+          <img src="../WebDuLich/images/zalo-logo.jpg" class="icon">
+          <div>
+            <h3>Giảm giá lên đến 300k VNĐ</h3>
+            <p>Giao dịch tối thiệu 8 triệu VNĐ<br>khi thanh toán bằng Zalopay</p>
+          </div>
+        </div>
+        <div class="code-box">
+          <span class="code">ZLPINFLY</span>
+          <button class="copy-btn" onclick="copyCode('ZLPINFLY')">Copy</button>
+        </div>
+      </div>
+
+      <div class="coupon-card">
+        <div class="card-header">
+          <img src="../WebDuLich/images/zalo-logo.jpg" class="icon">
+          <div>
+            <h3>Giảm giá lên đến 100k VNĐ</h3>
+            <p>Giao dịch tối thiệu 1 triệu VNĐ<br>khi thanh toán bằng Zalopay</p>
+          </div>
+        </div>
+        <div class="code-box">
+          <span class="code">ZLPHOTEL11</span>
+          <button class="copy-btn" onclick="copyCode('ZLPHOTEL11')">Copy</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="coupon-list" id="destination">
+    <div class="coupon-slider">
+      <div class="coupon-card">
+        <div class="card-header">
+          <img src="https://cdn-icons-png.flaticon.com/512/3103/3103479.png" class="icon">
+          <div>
+            <h3>Tiết kiệm 300k VND cho<br>Khách sạn tại Hồng Kông</h3>
+            <p>Giao dịch tối thiểu 3 triệu VND</p>
+          </div>
+        </div>
+        <div class="code-box">
+          <span class="code">HKWONDERSVNHT</span>
+          <button class="copy-btn" onclick="copyCode('HKWONDERSVNHT')">Copy</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <section class="hotels-section">
+    <h2>🏢Khách sạn nội địa</h2>
+    <div class="d-flex flex-wrap gap-2 mb-4 coupon-filters" id="hotelCityTabsND">
+      <button class="btn btn-primary coupon-filter-btn active" data-city="hn">Hà Nội</button>
+      <button class="btn btn-outline-secondary coupon-filter-btn" data-city="hcm">Tp.Hồ Chí Minh</button>
+      <button class="btn btn-outline-secondary coupon-filter-btn" data-city="dalat">Đà Lạt</button>
+      <button class="btn btn-outline-secondary coupon-filter-btn" data-city="vungtau">Vũng Tàu</button>
+      <button class="btn btn-outline-secondary coupon-filter-btn " data-city="nhatrang">Nha Trang</button>
+    </div>
+
+    <div class="hotel-list" id="hotelListND">
+      <article class="hotel-card" data-city="hn">
+        <img src="../WebDuLich/images/ks1.jpg" alt="La Batisse Kim Ma">
+        <span class="location">Kim Mã</span>
+        <span class="discount">Tiết kiệm 25%</span>
+        <div class="hotel-info">
+          <h3>La Batisse Kim Ma Hotel</h3>
+          <div class="stars">⭐⭐</div>
+          <div class="rating">👍 8.3/10 (121)</div>
+          <div class="price-old">377.117 VND</div>
+          <div class="price-new">283.117 VND</div>
+          <div class="note">Chưa bao gồm thuế và phí</div>
+        </div>
+      </article>
+
+      <article class="hotel-card" data-city="hn">
+        <img src="../WebDuLich/images/ks2.jpg" alt="Madelise Stardust Hotel & Travel">
+        <span class="location">Cửa Nam</span>
+        <span class="discount">Tiết kiệm 17%</span>
+        <div class="hotel-info">
+          <h3>Madelise Stardust Hotel & Travel</h3>
+          <div class="stars">⭐⭐⭐</div>
+          <div class="rating">👍 8.5/10 (20)</div>
+          <div class="price-old">883.117 VND</div>
+          <div class="price-new">736.785 VND</div>
+          <div class="note">Chưa bao gồm thuế và phí</div>
+        </div>
+      </article>
+
+      <article class="hotel-card" data-city="hn">
+        <img src="../WebDuLich/images/ks3.jpg" alt="22Housing Lake view">
+        <span class="location">Thuỵ Khê</span>
+        <span class="discount">Tiết kiệm 14%</span>
+        <div class="hotel-info">
+          <h3>22Housing Lake view Residence</h3>
+          <div class="stars">⭐⭐⭐</div>
+          <div class="rating">👍 8.7/10 (38)</div>
+          <div class="price-old">413.100 VND</div>
+          <div class="price-new">354.688 VND</div>
+          <div class="note">Chưa bao gồm thuế và phí</div>
+        </div>
+      </article>
+
+      <article class="hotel-card" data-city="hn">
+        <img src="../WebDuLich/images/ks4.jpg" alt="Khách sạn AncyrA TamTam Centrer Old Quarter">
+        <span class="location">Hàng Bạc</span>
+        <div class="hotel-info">
+          <h3>Khách sạn AncyrA TamTam Centrer Old Quarter</h3>
+          <div class="stars">⭐⭐⭐</div>
+          <div class="rating">👍 8.8/10 (43)</div>
+          <div class="price-old">501.980 VND</div>
+          <div class="price-new">488.164 VND</div>
+          <div class="note">Chưa bao gồm thuế và phí</div>
+        </div>
+      </article>
+
+      <article class="hotel-card" data-city="hcm" style="display: none;">
+        <img src="../WebDuLich/images/ks1hcm.jpg" alt="Cozrum Homes-Autumn House">
+        <span class="location">Phường 2</span>
+        <span class="discount">Tiết kiệm 19%</span>
+        <div class="hotel-info">
+          <h3>Cozrum Homes-Autumn House</h3>
+          <div class="stars">⭐⭐</div>
+          <div class="rating">👍 8.1/10 (170)</div>
+          <div class="price-old">467.135 VND</div>
+          <div class="price-new">380.182 VND</div>
+          <div class="note">Chưa bao gồm thuế và phí</div>
+        </div>
+      </article>
+
+      <article class="hotel-card" data-city="hcm" style="display: none;">
+        <img src="../WebDuLich/images/ks2hcm.jpg" alt="Cozrum Homes The Gallery Residence">
+        <span class="location">Phường 6</span>
+        <span class="discount">Tiết kiệm 25%</span>
+        <div class="hotel-info">
+          <h3>Cozrum Homes The Gallery Residence</h3>
+          <div class="stars">⭐⭐⭐</div>
+          <div class="rating">👍 8.3/10 (380)</div>
+          <div class="price-old">750.439 VND</div>
+          <div class="price-new">562.829 VND</div>
+          <div class="note">Chưa bao gồm thuế và phí</div>
+        </div>
+      </article>
+
+      <article class="hotel-card" data-city="hcm" style="display: none;">
+        <img src="../WebDuLich/images/ks3hcm.jpg" alt="Cozrum Homes-Sonata Residence">
+        <span class="location">Tân Phú</span>
+        <span class="discount">Tiết kiệm 18%</span>
+        <div class="hotel-info">
+          <h3>Cozrum Homes-Sonata Residence</h3>
+          <div class="stars">⭐⭐⭐</div>
+          <div class="rating">👍 7.9/10 (445)</div>
+          <div class="price-old">656.941 VND</div>
+          <div class="price-new">541.760 VND</div>
+          <div class="note">Chưa bao gồm thuế và phí</div>
+        </div>
+      </article>
+
+      <article class="hotel-card" data-city="hcm" style="display: none;">
+        <img src="../WebDuLich/images/ks4hcm.jpg" alt="Khách sạn Hera Airport">
+        <span class="location">Phường 2</span>
+        <span class="discount">Tiết kiệm 12%</span>
+        <div class="hotel-info">
+          <h3>Khách sạn Hera Airport</h3>
+          <div class="stars">⭐⭐⭐</div>
+          <div class="rating">👍 8.7/10 (445)</div>
+          <div class="price-old">523.377 VND</div>
+          <div class="price-new">460.467 VND</div>
+          <div class="note">Chưa bao gồm thuế và phí</div>
+        </div>
+      </article>
+
+      <article class="hotel-card" data-city="dalat">
+        <img src="../WebDuLich/images/ks1dalat.jpg" alt="Khách sạn Bazan">
+        <span class="location">Phường 3</span>
+        <span class="discount">Tiết kiệm 15%</span>
+        <div class="hotel-info">
+          <h3>Khách sạn Bazan</h3>
+          <div class="stars">⭐⭐⭐</div>
+          <div class="rating">👍 8.7/10 (28)</div>
+          <div class="price-old">207.792 VND</div>
+          <div class="price-new">176.208 VND</div>
+          <div class="note">Chưa bao gồm thuế và phí</div>
+        </div>
+      </article>
+
+      <article class="hotel-card" data-city="dalat">
+        <img src="../WebDuLich/images/ks2dalat.jpg" alt="Nature Hotel-Nam Ky Khoi Nghia">
+        <span class="location">Phường 1</span>
+        <span class="discount">Tiết kiệm 14%</span>
+        <div class="hotel-info">
+          <h3>Nature Hotel-Nam Ky Khoi Nghia</h3>
+          <div class="stars">⭐⭐⭐</div>
+          <div class="rating">👍 8.9/10 (41)</div>
+          <div class="price-old">375.918 VND</div>
+          <div class="price-new">322.763 VND</div>
+          <div class="note">Chưa bao gồm thuế và phí</div>
+        </div>
+      </article>
+
+      <article class="hotel-card" data-city="dalat">
+        <img src="../WebDuLich/images/ks4dalat.jpg" alt="Nature Boutique Hotel in Dalat">
+        <span class="location">Phường 2</span>
+        <span class="discount">Tiết kiệm 14%</span>
+        <div class="hotel-info">
+          <h3>Nature Boutique Hotel in Dalat</h3>
+          <div class="stars">⭐⭐⭐</div>
+          <div class="price-old">197.403 VND</div>
+          <div class="price-new">169.490 VND</div>
+          <div class="note">Chưa bao gồm thuế và phí</div>
+        </div>
+      </article>
+
+      <article class="hotel-card" data-city="dalat">
+        <img src="../WebDuLich/images/ks5dalat.jpg" alt="Khách sạn & Căn hộ LATA">
+        <span class="location">Phường 6</span>
+        <span class="discount">Tiết kiệm 12%</span>
+        <div class="hotel-info">
+          <h3>Guitar House Đà Lạt</h3>
+          <div class="stars">⭐⭐</div>
+          <div class="rating">👍9.5/10</div>
+          <div class="price-old">978.468 VND</div>
+          <div class="price-new">860.856 VND</div>
+          <div class="note">Chưa bao gồm thuế và phí</div>
+        </div>
+      </article>
+
+      <article class="hotel-card" data-city="vungtau" style="display: none;">
+        <img src="../WebDuLich/images/ks1vungtau.jpg" alt="Annata Beach Hotel">
+        <span class="location">Thắng Tam</span>
+        <span class="discount">Tiết kiệm 25%</span>
+        <div class="hotel-info">
+          <h3>Annata Beach Hotel</h3>
+          <div class="stars">⭐⭐⭐</div>
+          <div class="rating">👍 8.8/10 (170)</div>
+          <div class="price-old">764.343 VND</div>
+          <div class="price-new">573.257 VND</div>
+          <div class="note">Chưa bao gồm thuế và phí</div>
+        </div>
+      </article>
+
+      <article class="hotel-card" data-city="vungtau" style="display: none;">
+        <img src="../WebDuLich/images/ks2vungtau.jpg" alt="Le Palmier Ho Tram">
+        <span class="location">Phước Thuận</span>
+        <span class="discount">Tiết kiệm 12%</span>
+        <div class="hotel-info">
+          <h3>Le Palmier Ho Tram</h3>
+          <div class="stars">⭐⭐⭐⭐</div>
+          <div class="rating">👍 8.9/10 (164)</div>
+          <div class="price-old">1.589.610 VND</div>
+          <div class="price-new">1.398.539 VND</div>
+          <div class="note">Chưa bao gồm thuế và phí</div>
+        </div>
+      </article>
+
+      <article class="hotel-card" data-city="vungtau" style="display: none;">
+        <img src="../WebDuLich/images/ks3vungtau.jpg" alt="5-homestay 1">
+        <span class="location">Phường 8</span>
+        <span class="discount">Tiết kiệm 17%</span>
+        <div class="hotel-info">
+          <h3>5-homestay 1</h3>
+          <div class="rating">👍 8.9/10 (196)</div>
+          <div class="price-old">324.675 VND</div>
+          <div class="price-new">268.441 VND</div>
+          <div class="note">Chưa bao gồm thuế và phí</div>
+        </div>
+      </article>
+
+      <article class="hotel-card" data-city="vungtau" style="display: none;">
+        <img src="../WebDuLich/images/ks4vungtau.jpg" alt="Khách sạn Mường Thanh Vũng Tàu">
+        <span class="location">Phường 1</span>
+        <span class="discount">Tiết kiệm 22%</span>
+        <div class="hotel-info">
+          <h3>Khách sạn Mường Thanh Vũng Tàu</h3>
+          <div class="rating">👍8.4/10 (445)</div>
+          <div class="price-old">1.172.055 VND</div>
+          <div class="price-new">911.618 VND</div>
+          <div class="note">Chưa bao gồm thuế và phí</div>
+        </div>
+      </article>
+
+      <article class="hotel-card" data-city="nhatrang" style="display: none;">
+        <img src="../WebDuLich/images/ks1nhatrang.jpg" alt="Ruby Hotel Nha Trang">
+        <span class="location">Vĩnh Nguyên</span>
+        <span class="discount">Tiết kiệm 14%</span>
+        <div class="hotel-info">
+          <h3>Ruby Hotel Nha Trang</h3>
+          <div class="stars">⭐⭐⭐⭐</div>
+          <div class="rating">👍 8.4/10 (256)</div>
+          <div class="price-old">422.511 VND</div>
+          <div class="price-new">362.768 VND</div>
+          <div class="note">Chưa bao gồm thuế và phí</div>
+        </div>
+      </article>
+
+      <article class="hotel-card" data-city="nhatrang" style="display: none;">
+        <img src="../WebDuLich/images/ks2nhatrang.jpg" alt="Khách sạn Muong Thanh Luxury Nha Trang">
+        <span class="location">Lộc Thọ</span>
+        <div class="hotel-info">
+          <h3>Khách sạn Muong Thanh Luxury Nha Trang</h3>
+          <div class="stars">⭐⭐⭐⭐⭐</div>
+          <div class="rating">👍 8.7/10 (882)</div>
+          <div class="price-old">957.273 VND</div>
+          <div class="price-new">934.352 VND</div>
+          <div class="note">Chưa bao gồm thuế và phí</div>
+        </div>
+      </article>
+
+      <article class="hotel-card" data-city="nhatrang" style="display: none;">
+        <img src="../WebDuLich/images/ks3nhatrang.jpg" alt="Dimond Bay Condotel-Resort Nha Trang">
+        <span class="location">Phước Đồng</span>
+        <div class="hotel-info">
+          <h3>Dimond Bay Condotel-Resort Nha Trang</h3>
+          <div class="rating">⭐⭐⭐⭐⭐</div>
+          <div class="rating">👍 8.5/10 (191)</div>
+          <div class="price-old">741.818 VND</div>
+          <div class="price-new">707.2247 VND</div>
+          <div class="note">Chưa bao gồm thuế và phí</div>
+        </div>
+      </article>
+
+      <article class="hotel-card" data-city="nhatrang" style="display: none;">
+        <img src="../WebDuLich/images/ks4nhatrang.jpg" alt="Xavia Hotel Nha Trang">
+        <span class="location">Vĩnh Nguyên</span>
+        <span class="rating">⭐⭐⭐⭐</span>
+        <div class="hotel-info">
+          <h3>Xavia Hotel Nha Trang</h3>
+          <div class="rating">👍8.9/10 (436)</div>
+          <div class="price-old">566.234 VND</div>
+          <div class="price-new">562.965 VND</div>
+          <div class="note">Chưa bao gồm thuế và phí</div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="hotels-section">
+    <h2>🏢Khách sạn quốc tế</h2>
+    <div class="d-flex flex-wrap gap-2 mb-4 coupon-filters" id="hotelCityTabsQT">
+      <button class="btn btn-primary coupon-filter-btn active" data-city="bangkok">Bangkok</button>
+      <button class="btn btn-outline-secondary coupon-filter-btn" data-city="sgp">Singapore</button>
+      <button class="btn btn-outline-secondary coupon-filter-btn" data-city="malay">Kuala Lumpur</button>
+      <button class="btn btn-outline-secondary coupon-filter-btn" data-city="indo">Bali</button>
+      <button class="btn btn-outline-secondary coupon-filter-btn " data-city="trung">Chiang Mai</button>
+    </div>
+
+
+    <div class="hotel-list" id="hotelListQT" style="margin-bottom:24px;">
+      <article class="hotel-card" data-city="bangkok">
+        <img src="../WebDuLich/images/ks1bangkok.jpg" alt="Away Bangkok">
+        <span class="location">Khu ven sông Bangkok</span>
+        <span class="discount">Tiết kiệm 16%</span>
+        <div class="hotel-info">
+          <h3>Away Bangkok Riverside Kene</h3>
+          <div class="stars">⭐⭐⭐⭐</div>
+          <div class="rating">👍9.1/10</div>
+          <div class="price-old">1.259.755 VND</div>
+          <div class="price-new">1.209.365 VND</div>
+          <div class="note">Chưa bao gồm thuế và phí</div>
+        </div>
+      </article>
+
+      <article class="hotel-card" data-city="bangkok">
+        <img src="../WebDuLich/images/ks2bangkok.jpg" alt="Cross Vibe">
+        <span class="location">On Nut</span>
+        <span class="discount">Tiết kiệm 16%</span>
+        <div class="hotel-info">
+          <h3>Cross Vibe Bangkok Sukhumvit</h3>
+          <div class="stars">⭐⭐⭐⭐</div>
+          <div class="rating">👍8.4/10</div>
+          <div class="price-old">337.792 VND</div>
+          <div class="price-new">290.028 VND</div>
+          <div class="note">Chưa bao gồm thuế và phí</div>
+        </div>
+      </article>
+
+      <article class="hotel-card" data-city="bangkok">
+        <img src="../WebDuLich/images/ks3bangkok.jpg" alt="Solitare">
+        <span class="location">Nana</span>
+        <span class="discount">Tiết kiệm 16%</span>
+        <div class="hotel-info">
+          <h3>Solitaire Bangkok Sukhumvit</h3>
+          <div class="stars">⭐⭐⭐⭐</div>
+          <div class="rating">👍8.4/10</div>
+          <div class="price-old">1.778.898 VND</div>
+          <div class="price-new">1.494.276 VND</div>
+          <div class="note">Chưa bao gồm thuế và phí</div>
+        </div>
+      </article>
+
+      <article class="hotel-card" data-city="bangkok">
+        <img src="../WebDuLich/images/ks4bangkok.jpg" alt="Aria Hotel Bangkok">
+        <span class="location">Nana</span>
+        <span class="discount">Tiết kiệm 16%</span>
+        <div class="hotel-info">
+          <h3>Aria Hotel Bangkok</h3>
+          <div class="stars">⭐⭐⭐⭐</div>
+          <div class="rating">👍8.6/10</div>
+          <div class="price-old">2.255.451 VND</div>
+          <div class="price-new">1.894.582 VND</div>
+          <div class="note">Chưa bao gồm thuế và phí</div>
+        </div>
+      </article>
+
+      <article class="hotel-card" data-city="sgp" style="display: none;">
+        <img src="../WebDuLich/images/ks1sgp.jpg" alt="Lavender">
+        <span class="location">Lavender</span>
+        <div class="hotel-info">
+          <h3>Lavender</h3>
+          <div class="stars">⭐⭐⭐⭐</div>
+          <div class="rating">👍8.6/10</div>
+          <div class="price-old">2.243.204 VND</div>
+          <div class="price-new">2.222.154VND</div>
+          <div class="note">Chưa bao gồm thuế và phí</div>
+        </div>
+      </article>
+
+      <article class="hotel-card" data-city="sgp" style="display: none;">
+        <img src="../WebDuLich/images/ks2sgp.jpg" alt="Orchard Hotel Singapore">
+        <span class="location">Orchard</span>
+        <span class="discount">Tiết kiệm 25%</span>
+        <div class="hotel-info">
+          <h3>Orchard Hotel Singapore</h3>
+          <div class="stars">⭐⭐⭐⭐⭐</div>
+          <div class="rating">👍8.5/10</div>
+          <div class="price-old">5.925.134 VND</div>
+          <div class="price-new">4.444.600 VND</div>
+          <div class="note">Chưa bao gồm thuế và phí</div>
+        </div>
+      </article>
+
+      <article class="hotel-card" data-city="sgp" style="display: none;">
+        <img src="../WebDuLich/images/ks3sgp.jpg" alt="Hotel Royal">
+        <span class="location">Novena</span>
+        <span class="discount">Tiết kiệm 23%</span>
+        <div class="hotel-info">
+          <h3>Hotel Royal</h3>
+          <div class="stars">⭐⭐⭐⭐</div>
+          <div class="rating">👍8.2/10</div>
+          <div class="price-old">5.129.222 VND</div>
+          <div class="price-new">3.933.255 VND</div>
+          <div class="note">Chưa bao gồm thuế và phí</div>
+        </div>
+      </article>
+
+      <article class="hotel-card" data-city="sgp" style="display: none;">
+        <img src="../WebDuLich/images/ks4sgp.jpg" alt=" Hotel Grand Pacific">
+        <span class="location">Bugis</span>
+        <span class="discount">Tiết kiệm 25%</span>
+        <div class="hotel-info">
+          <h3>Hotel Grand Pacific</h3>
+          <div class="stars">⭐⭐⭐⭐</div>
+          <div class="rating">👍8.5/10</div>
+          <div class="price-old">3.409.556 VND</div>
+          <div class="price-new">2.557.167 VND</div>
+          <div class="note">Chưa bao gồm thuế và phí</div>
+        </div>
+      </article>
+
+      <article class="hotel-card" data-city="malay" style="display: none;">
+        <img src="../WebDuLich/images/ks1malay.jpg" alt="Sleeping Lion Suites">
+        <span class="location"> Bukit Bintang</span>
+        <div class="hotel-info">
+          <h3>Sleeping Lion Suites</h3>
+          <div class="stars">⭐⭐⭐</div>
+          <div class="rating">👍9.1/10(3458)</div>
+          <div class="price-old">1.166.358 VND</div>
+          <div class="price-new">1.144.648 VND</div>
+          <div class="note">Chưa bao gồm thuế và phí</div>
+        </div>
+      </article>
+
+      <article class="hotel-card" data-city="malay" style="display: none;">
+        <img src="../WebDuLich/images/ks2malay.jpg" alt="Pullman Kuala Lumpur City Centre">
+        <span class="location"> Trung tâm Thành phố Kuala Lumpur</span>
+        <span class="discount">Tiết kiệm 25%</span>
+        <div class="hotel-info">
+          <h3>Pullman Kuala Lumpur City Centre</h3>
+          <div class="stars">⭐⭐⭐⭐⭐</div>
+          <div class="rating">👍8.7/10(1987)</div>
+          <div class="price-old">3.697.700 VND</div>
+          <div class="price-new">2.773.275 VND</div>
+          <div class="note">Chưa bao gồm thuế và phí</div>
+        </div>
+      </article>
+
+      <article class="hotel-card" data-city="malay" style="display: none;">
+        <img src="../WebDuLich/images/ks3malay.jpg" alt="Greystone D'Majestic Place">
+        <span class="location">Bukit Bintang</span>
+        <span class="discount">Tiết kiệm 25%</span>
+        <div class="hotel-info">
+          <h3>Greystone D'Majestic Place</h3>
+          <div class="stars">⭐⭐⭐</div>
+          <div class="rating">👍8.1/10(1436)</div>
+          <div class="price-old">1.155.541 VND</div>
+          <div class="price-new">866.656 VND</div>
+          <div class="note">Chưa bao gồm thuế và phí</div>
+        </div>
+      </article>
+
+      <article class="hotel-card" data-city="malay" style="display: none;">
+        <img src="../WebDuLich/images/ks4malay.jpg" alt=" de King Hotel KLCC">
+        <span class="location">trung tâm Thành phố Kuala Lumpur</span>
+        <span class="discount">Tiết kiệm 25%</span>
+        <div class="hotel-info">
+          <h3>de King Hotel KLCC</h3>
+          <div class="stars">⭐⭐⭐</div>
+          <div class="rating">👍8.7/10(3142)</div>
+          <div class="price-old">1.183.164 VND</div>
+          <div class="price-new">887.373 VND</div>
+          <div class="note">Chưa bao gồm thuế và phí</div>
+        </div>
+      </article>
+      <article class="hotel-card" data-city="indo" style="display: none;">
+        <img src="../WebDuLich/images/ks1indo.jpg" alt="The Anvaya Beach Resort Bali">
+        <span class="location">Kuta</span>
+        <div class="hotel-info">
+          <h3>The Anvaya Beach Resort Bali</h3>
+          <div class="stars">⭐⭐⭐⭐⭐</div>
+          <div class="rating">👍8.9/10(3458)</div>
+          <div class="price-old">4.452.726 VND</div>
+          <div class="price-new">3.339.544 VND</div>
+          <div class="note">Chưa bao gồm thuế và phí</div>
+        </div>
+      </article>
+
+      <article class="hotel-card" data-city="indo" style="display: none;">
+        <img src="../WebDuLich/images/ks2indo.jpg" alt="Quest Hotel Kuta by ASTON">
+        <span class="location"> Tuban</span>
+        <span class="discount">Tiết kiệm 21%</span>
+        <div class="hotel-info">
+          <h3>Quest Hotel Kuta by ASTON</h3>
+          <div class="stars">⭐⭐⭐</div>
+          <div class="rating">👍8.7/10(1987)</div>
+          <div class="price-old">480.947 VND</div>
+          <div class="price-new">378.745 VND</div>
+          <div class="note">Chưa bao gồm thuế và phí</div>
+        </div>
+      </article>
+
+      <article class="hotel-card" data-city="indo" style="display: none;">
+        <img src="../WebDuLich/images/ks3indo.jpg" alt="Harper Kuta by ASTON">
+        <span class="location">Legian</span>
+        <span class="discount">Tiết kiệm 13%</span>
+        <div class="hotel-info">
+          <h3>Harper Kuta by ASTON</h3>
+          <div class="stars">⭐⭐⭐⭐</div>
+          <div class="rating">👍8.1/10(1436)</div>
+          <div class="price-old">919.837 VND</div>
+          <div class="price-new">804.536 VND</div>
+          <div class="note">Chưa bao gồm thuế và phí</div>
+        </div>
+      </article>
+
+      <article class="hotel-card" data-city="indo" style="display: none;">
+        <img src="../WebDuLich/images/ks4indo.jpg" alt="Sense Sunset Seminyak">
+        <span class="location">Seminyak</span>
+        <span class="discount">Tiết kiệm 25%</span>
+        <div class="hotel-info">
+          <h3>Sense Sunset Seminyak</h3>
+          <div class="stars">⭐⭐⭐⭐</div>
+          <div class="rating">👍8.7/10(3142)</div>
+          <div class="price-old">612.508 VND</div>
+          <div class="price-new">460.532 VND</div>
+          <div class="note">Chưa bao gồm thuế và phí</div>
+        </div>
+      </article>
+
+      <article class="hotel-card" data-city="trung" style="display: none;">
+        <img src="../WebDuLich/images/ks1trung.jpg" alt="Cross Vibe Chiang Mai Decem Nimman Hotel">
+        <span class="location">Huay Kaew</span>
+        <div class="hotel-info">
+          <h3>Cross Vibe Chiang Mai Decem Nimman Hotel</h3>
+          <div class="stars">⭐⭐⭐⭐</div>
+          <div class="rating">👍8.2/10(762)</div>
+          <div class="price-old">1.209.238 VND</div>
+          <div class="price-new">990.356 VND</div>
+          <div class="note">Chưa bao gồm thuế và phí</div>
+        </div>
+      </article>
+
+      <article class="hotel-card" data-city="trung" style="display: none;">
+        <img src="../WebDuLich/images/ks2trung.jpg" alt="Moose Hotel Chiang Mai">
+        <span class="location"> Wat Ket</span>
+        <span class="discount">Tiết kiệm 25%</span>
+        <div class="hotel-info">
+          <h3>Moose Hotel Chiang Mai</h3>
+          <div class="stars">⭐⭐⭐⭐</div>
+          <div class="rating">👍9.0/10(1987)</div>
+          <div class="price-old">742.572 VND</div>
+          <div class="price-new">556.929 VND</div>
+          <div class="note">Chưa bao gồm thuế và phí</div>
+        </div>
+      </article>
+
+      <article class="hotel-card" data-city="trung" style="display: none;">
+        <img src="../WebDuLich/images/ks3trung.jpg" alt="R2 Hotel Chiang Mai">
+        <span class="location">Su Thep</span>
+        <span class="discount">Tiết kiệm 13%</span>
+        <div class="hotel-info">
+          <h3>R2 Hotel Chiang Mai</h3>
+          <div class="stars">⭐⭐⭐⭐</div>
+          <div class="rating">👍8.1/10(1436)</div>
+          <div class="price-old">600.500 VND</div>
+          <div class="price-new">523.694 VND</div>
+          <div class="note">Chưa bao gồm thuế và phí</div>
+        </div>
+      </article>
+
+      <article class="hotel-card" data-city="trung" style="display: none;">
+        <img src="../WebDuLich/images/ks4trung.jpg" alt="R1 Nimman Hotel Chiang Mai">
+        <span class="location">Nimmanhamin</span>
+        <span class="discount">Tiết kiệm 25%</span>
+        <div class="hotel-info">
+          <h3>R1 Nimman Hotel Chiang Mai</h3>
+          <div class="stars">⭐⭐⭐⭐</div>
+          <div class="rating">👍8.7/10(3142)</div>
+          <div class="price-old">591.865 VND</div>
+          <div class="price-new">443.899 VND</div>
+          <div class="note">Chưa bao gồm thuế và phí</div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <h3 style="margin-left: 50px;">Đối tác thanh toán</h3>
+  <p style="margin-left: 50px;">Đối tác khách sạn trong nước & quốc tế</p>
+  <p style="margin-left: 50px;">Chúng tôi hợp tác với các khách sạn uy tín toàn cầu để mang đến cho bạn chỗ ở thoải mái
+    và đáng tin cậy, dù bạn đi bất cứ đâu.</p>
+  <img src="doitac_ks.jpg" alt="">
+  <hr>
+  <div class="partners mb-5" style="margin-top: 100px;">
+    <div class="partners-left">
+      <h3>Đối tác khách sạn</h3>
+      <p>Thanh toán một cách dễ dàng</p>
+      <p>Chúng tôi hợp tác với các ngân hàng đáng tin cậy và cửa hàng cho phép bạn thanh toán dễ dàng.</p>
+    </div>
+    <div class="partners-right">
+      <img src="doitac.jpg" alt="">
+    </div>
+  </div>
+  <iframe src="footer.html" style="width: 100%; height: 670px; border: none; overflow: hidden;"></iframe>
+  <script src="../WebDuLich/bootstrap-5.3.8-dist/bootstrap-5.3.8-dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../WebDuLich/js/js-hotel.js"></script>
+  <script src="../WebDuLich/js/h-f.js"></script>
+</body>
+
+</html>

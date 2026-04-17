@@ -1,0 +1,154 @@
+body{
+    padding: 0;
+    margin: 0;
+}
+/* Tạo nền gradient màu xanh đặc trưng */
+.hero-section {
+    background: linear-gradient(135deg, #0b66c3, #07ced9);
+    min-height: 250px;
+    padding-bottom: 80px;
+    /* Chừa chỗ cho cái thẻ booking đè lên */
+}
+
+/* Đẩy thẻ booking lên trên phần banner để tạo hiệu ứng nổi */
+.booking-container {
+    margin-top: -60px;
+    position: relative;
+    z-index: 10;
+}
+
+/* Tùy chỉnh nút đổi chiều */
+.swap-btn {
+    width: 45px;
+    height: 45px;
+    transition: transform 0.3s ease, background-color 0.3s;
+}
+
+.swap-btn:hover {
+    transform: rotate(180deg);
+    /* Xoay vòng khi di chuột */
+    background-color: #0b66c3;
+    color: white;
+}
+
+/* Nút tìm kiếm màu cam nổi bật */
+.btn-warning {
+    background-color: #ff6b2d;
+    border-color: #ff6b2d;
+    color: white !important;
+}
+
+.btn-warning:hover {
+    background-color: #e65100;
+}
+
+/* Hiệu ứng hover cho thẻ promo */
+.promo-card {
+    transition: transform 0.2s;
+}
+
+.promo-card:hover {
+    transform: translateY(-5px);
+}
+
+.partners {
+    display: grid;
+    grid-template-columns: 1fr 2.5fr;
+    gap: 5px;
+    margin-left: 300px;
+}
+
+.reason {
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+    gap: 100px;
+    margin-left: 350px;
+}
+
+.reason1 {
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    gap: 50px;
+    margin-left: 350px;
+    margin-right: 350px;
+}
+
+/* 1. Tạo vòng tròn số thứ tự */
+.step-number {
+    width: 100px;
+    height: 40px;
+    background-color: #dbeafe;
+    color: #0b66c3;
+    font-weight: bold;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    margin-right: 20px;
+}
+
+/* 2. Cấu trúc hộp nội dung bên phải */
+.step-card {
+    display: flex;
+    align-items: flex-start;
+    transition: transform 0.3s;
+    margin-right: 180px;
+}
+
+
+/* Chỉnh ảnh minh họa cho gọn */
+.step-img {
+    max-width: 250px;
+    /* Giới hạn chiều rộng ảnh giống mẫu */
+    border: 1px solid #eee;
+}
+
+/* 1. Thiết lập khung thẻ */
+.route-card {
+    display: block;             /* Để thẻ a bao trùm hết khối */
+    position: relative;         /* Quan trọng: Để con cái (chữ) định vị theo nó */
+    border-radius: 12px;        
+    overflow: hidden;           
+    height: 150px; 
+    width: 300px;             
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* 2. Chỉnh ảnh nền */
+.route-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;          /* Giúp ảnh không bị méo dù khung hình chữ nhật */
+}
+
+/* 3. Lớp phủ màu đen mờ (để chữ trắng dễ đọc hơn) */
+.route-card .overlay {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.3); /* Màu đen mờ 30% */
+    z-index: 1;                 /* Nằm trên ảnh nhưng dưới chữ */
+}
+
+/* 4. Chỉnh chữ tiêu đề */
+.route-title {
+    position: absolute;
+    top: 50%; left: 50%;        /* Đưa điểm gốc về giữa */
+    transform: translate(-50%, -50%); /* Căn chỉnh chính xác vào tâm */
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+    z-index: 2;                 /* Nằm trên cùng */
+    text-align: center;
+    width: 100%;                /* Để chữ không bị gãy dòng lung tung */
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5); /* Tạo bóng chữ cho nét hơn */
+}
+
+.info h3{
+    text-align: center;
+}
+
+.info{
+    margin: 0 250px;
+}

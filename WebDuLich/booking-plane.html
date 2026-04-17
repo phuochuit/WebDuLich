@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đặt vé máy bay</title>
+    <link href="../WebDuLich/bootstrap-5.3.8-dist/bootstrap-5.3.8-dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../WebDuLich/css/style-plane.css">
+    <link rel="stylesheet" href="../WebDuLich/css/h-f.css">
+</head>
+
+<body>
+    <iframe src="header.html" style="width: 100%; height: 650px; border: none; overflow: hidden;"></iframe>
+    <!-- Banner -->
+    <div class="banner">
+        <h1 class="fw-bold">Tìm vé máy bay giá rẻ</h1>
+    </div>
+
+    <!-- Ô tìm kiếm -->
+    <div class="container">
+        <div class="search-box">
+            <div class="d-flex gap-2 mb-3">
+                <button class="btn tab-btn active" data-trip="oneway">Một chiều</button>
+                <button class="btn tab-btn" data-trip="round">Khứ hồi</button>
+            </div>
+
+            <div class="row g-2">
+                <div class="col-md-5">
+                    <label class="form-label">Từ</label>
+                    <input type="text" class="form-control" value="TP HCM (SGN)">
+                </div>
+
+                <div class="col-md-1 text-center swap-btn">⇄</div>
+
+                <div class="col-md-5">
+                    <label class="form-label">Đến</label>
+                    <input type="text" class="form-control" value="Bangkok (BKK)">
+                </div>
+
+                <div class="col-md-3">
+                    <label class="form-label">Ngày đi</label>
+                    <input type="date" class="form-control" value="2025-11-17">
+                </div>
+
+                <div class="col-md-3 d-none" id="returnDateBox">
+                    <label class="form-label">Ngày về</label>
+                    <input type="date" class="form-control">
+                </div>
+
+                <div class="col-md-3">
+                    <label class="form-label">Hành khách</label>
+                    <select class="form-select">
+                        <option>1 Người lớn</option>
+                        <option>2 Người lớn</option>
+                    </select>
+                </div>
+
+                <div class="col-md-3 d-flex align-items-end">
+                    <button class="btn btn-primary w-100" id="searchBtn">Tìm chuyến bay</button>
+                </div>
+            </div>
+
+            <div id="flightResult" class="mt-3"></div>
+        </div>
+    </div>
+
+    <!-- Mã giảm giá -->
+    <section class="container my-4">
+        <h3 class="section-title">Mã ưu đãi</h3>
+        <div class="row g-3">
+            <div class="col-md-4">
+                <div class="p-3 border rounded bg-white">
+                    <strong>Giảm 200k VND</strong>
+                    <p class="small text-muted mb-2">Đơn từ 2 triệu</p>
+                    <div class="input-group">
+                        <input class="form-control" value="ACBFLY200" readonly>
+                        <button class="btn btn-primary copy-btn">Copy</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="p-3 border rounded bg-white">
+                    <strong>Giảm 300k VND</strong>
+                    <p class="small text-muted mb-2">Đơn từ 5 triệu</p>
+                    <div class="input-group">
+                        <input class="form-control" value="SB300" readonly>
+                        <button class="btn btn-primary copy-btn">Copy</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="p-3 border rounded bg-white">
+                    <strong>Giảm 250k VND</strong>
+                    <p class="small text-muted mb-2">Đơn từ 3 triệu</p>
+                    <div class="input-group">
+                        <input class="form-control" value="THEHDBMB" readonly>
+                        <button class="btn btn-primary copy-btn">Copy</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ưu đãi -->
+    <section class="container my-4">
+        <h3 class="section-title">Ưu đãi vé máy bay</h3>
+        <div class="row g-3">
+            <div class="col-md-4">
+                <div class="card shadow-sm border-0 rounded-4 p-3 h-100">
+                    <img src="../WebDuLich/images/uudai.jpg" class="card-img-top rounded-4" alt="">
+                    <div class="card-body">
+                        <h5 class="card-title">Giảm 50%</h5>
+                        <p class="card-text">Bay nội địa</p>
+                        <a href="#" class="btn btn-primary w-100">Xem chi tiết</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card shadow-sm border-0 rounded-4 p-3 h-100">
+                    <img src="../WebDuLich/images/uudai2.jpg" class="card-img-top rounded-4" alt="">
+                    <div class="card-body">
+                        <h5 class="card-title">Deal quốc tế</h5>
+                        <p class="card-text">Tiết kiệm 2 triệu</p>
+                        <a href="#" class="btn btn-primary w-100">Xem khuyến mãi</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card shadow-sm border-0 rounded-4 p-3 h-100">
+                    <img src="../WebDuLich/images/uudai3.jpg" class="card-img-top rounded-4" alt="">
+                    <div class="card-body">
+                        <h5 class="card-title">Combo</h5>
+                        <p class="card-text">Vé + Khách sạn</p>
+                        <a href="#" class="btn btn-primary w-100">Khám phá</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Mã Ưu Đãi Tặng Bạn Mới -->
+    <section class="container my-4">
+        <h3 class="section-title">Mã Ưu Đãi Tặng Bạn Mới</h3>
+        <div class="row g-3">
+            <div class="col-md-4">
+                <div class="p-3 border rounded bg-white">
+                    <strong>Giảm 150K</strong>
+                    <p class="small text-muted mb-2">Cho đơn đầu tiên</p>
+                    <div class="input-group">
+                        <input class="form-control" value="WELCOME150" readonly>
+                        <button class="btn btn-primary copy-btn">Copy</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="p-3 border rounded bg-white">
+                    <strong>Giảm 200K</strong>
+                    <p class="small text-muted mb-2">Đơn từ 3 triệu</p>
+                    <div class="input-group">
+                        <input class="form-control" value="NEWUSER200" readonly>
+                        <button class="btn btn-primary copy-btn">Copy</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="p-3 border rounded bg-white">
+                    <strong>Giảm 10%</strong>
+                    <p class="small text-muted mb-2">Tối đa 500K</p>
+                    <div class="input-group">
+                        <input class="form-control" value="FIRSTFLY10" readonly>
+                        <button class="btn btn-primary copy-btn">Copy</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vé máy bay nội địa giá tốt nhất -->
+    <section class="container my-4">
+        <h3 class="section-title">Vé máy bay nội địa giá tốt nhất!</h3>
+        <div class="row g-3">
+            <div class="col-md-3">
+                <div class="card flight-card h-100">
+                    <div class="card-body">
+                        <h6 class="text-primary">MỘT CHIỀU</h6>
+                        <p class="fw-bold mb-1">TP HCM - Hà Nội</p>
+                        <p class="small text-muted mb-1">28 thg 2 2026</p>
+                        <h5 class="text-danger">820.929 VND</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card flight-card h-100">
+                    <div class="card-body">
+                        <h6 class="text-primary">MỘT CHIỀU</h6>
+                        <p class="fw-bold mb-1">TP HCM - Hà Nội</p>
+                        <p class="small text-muted mb-1">28 thg 2 2026</p>
+                        <h5 class="text-danger">820.909 VND</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card flight-card h-100">
+                    <div class="card-body">
+                        <h6 class="text-primary">MỘT CHIỀU</h6>
+                        <p class="fw-bold mb-1">TP HCM - Hà Nội</p>
+                        <p class="small text-muted mb-1">28 thg 2 2026</p>
+                        <h5 class="text-danger">820.929 VND</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card flight-card h-100">
+                    <div class="card-body">
+                        <h6 class="text-primary">MỘT CHIỀU</h6>
+                        <p class="fw-bold mb-1">Đà Nẵng - Hà Nội</p>
+                        <p class="small text-muted mb-1">4 thg 12 2025</p>
+                        <h5 class="text-danger">677.488 VND</h5>
+                    </div>
+                </div>
+            </div>
+            <a href="#" class="btn btn-outline-primary">Xem thêm ưu đãi bay ></a>
+        </div>
+    </section>
+
+    <!-- Vé máy bay quốc tế giá tốt nhất -->
+    <section class="container my-4">
+        <h3 class="section-title">Vé máy bay quốc tế giá tốt nhất!</h3>
+        <div class="row g-3">
+            <div class="col-md-3">
+                <div class="card flight-card h-100">
+                    <div class="card-body">
+                        <h6 class="text-primary">MỘT CHIỀU</h6>
+                        <p class="fw-bold mb-1">TP HCM - Bangkok</p>
+                        <p class="small text-muted mb-1">15 thg 3 2026</p>
+                        <h5 class="text-danger">1.528.320 VND</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card flight-card h-100">
+                    <div class="card-body">
+                        <h6 class="text-primary">MỘT CHIỀU</h6>
+                        <p class="fw-bold mb-1">Hà Nội - Singapore</p>
+                        <p class="small text-muted mb-1">20 thg 3 2026</p>
+                        <h5 class="text-danger">2.150.000 VND</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card flight-card h-100">
+                    <div class="card-body">
+                        <h6 class="text-primary">MỘT CHIỀU</h6>
+                        <p class="fw-bold mb-1">Đà Nẵng - Seoul</p>
+                        <p class="small text-muted mb-1">25 thg 3 2026</p>
+                        <h5 class="text-danger">3.850.000 VND</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card flight-card h-100">
+                    <div class="card-body">
+                        <h6 class="text-primary">MỘT CHIỀU</h6>
+                        <p class="fw-bold mb-1">TP HCM - Tokyo</p>
+                        <p class="small text-muted mb-1">10 thg 4 2026</p>
+                        <h5 class="text-danger">4.250.000 VND</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-3">
+            <a href="#" class="btn btn-outline-primary">Xem thêm ưu đãi bay ></a>
+        </div>
+    </section>
+
+    <!-- Tìm Kiếm Các Deal Bay Rẻ Từ Việt Nam -->
+    <section class="container my-4">
+        <div class="bg-white p-4 rounded shadow-sm">
+            <h3 class="section-title mb-4">Tìm Kiếm Các Deal Bay Rẻ Từ Việt Nam</h3>
+
+            <!-- Tabs Một Chiều -->
+            <div class="d-flex gap-2 mb-4">
+                <button class="btn btn-outline-primary active">Một Chiều</button>
+                <button class="btn btn-outline-secondary">Nội Địa</button>
+                <button class="btn btn-outline-secondary">Quốc Tế</button>
+            </div>
+
+            <!-- Danh sách các chuyến bay - 2 chuyến bay mỗi hàng -->
+            <div class="row g-3">
+                <!-- Vietravel Airlines -->
+                <div class="col-md-6">
+                    <div class="card flight-card h-100">
+                        <div class="card-body">
+                            <h6 class="text-primary mb-1">Vietravel Airlines</h6>
+                            <p class="fw-bold mb-1">TP HCM (SGN) → Bangkok (BKK)</p>
+                            <p class="small text-muted mb-1">Th 3, 16 thg 12, 2025</p>
+                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                <h5 class="text-danger mb-0">1.836.000 VND</h5>
+                                <span class="badge bg-light text-dark">Một Chiều</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Scoot -->
+                <div class="col-md-6">
+                    <div class="card flight-card h-100">
+                        <div class="card-body">
+                            <h6 class="text-primary mb-1">Scoot</h6>
+                            <p class="fw-bold mb-1">Singapore (SIN) → TP HCM (SGN)</p>
+                            <p class="small text-muted mb-1">Th 4, 31 thg 12, 2025</p>
+                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                <h5 class="text-danger mb-0">2.438.000 VND</h5>
+                                <span class="badge bg-light text-dark">Một Chiều</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- VietJet Air -->
+                <div class="col-md-6">
+                    <div class="card flight-card h-100">
+                        <div class="card-body">
+                            <h6 class="text-primary mb-1">VietJet Air</h6>
+                            <p class="fw-bold mb-1">Bangkok (BKK) → TP HCM (SGN)</p>
+                            <p class="small text-muted mb-1">Th 4, 31 thg 12, 2025</p>
+                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                <h5 class="text-danger mb-0">1.879.622 VND</h5>
+                                <span class="badge bg-light text-dark">Một Chiều</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- VietJet Air -->
+                <div class="col-md-6">
+                    <div class="card flight-card h-100">
+                        <div class="card-body">
+                            <h6 class="text-primary mb-1">VietJet Air</h6>
+                            <p class="fw-bold mb-1">Hà Nội (HAN) → Bangkok (BKK)</p>
+                            <p class="small text-muted mb-1">Không có ngày cụ thể</p>
+                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                <h5 class="text-danger mb-0">2.030.795 VND</h5>
+                                <span class="badge bg-light text-dark">Một Chiều</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Scoot -->
+                <div class="col-md-6">
+                    <div class="card flight-card h-100">
+                        <div class="card-body">
+                            <h6 class="text-primary mb-1">Scoot</h6>
+                            <p class="fw-bold mb-1">TP HCM (SGN) → Singapore (SIN)</p>
+                            <p class="small text-muted mb-1">Th 5, 11 thg 12, 2025</p>
+                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                <h5 class="text-danger mb-0">1.538.025 VND</h5>
+                                <span class="badge bg-light text-dark">Một Chiều</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AirAsia Berhad -->
+                <div class="col-md-6">
+                    <div class="card flight-card h-100">
+                        <div class="card-body">
+                            <h6 class="text-primary mb-1">AirAsia Berhad (Malaysia)</h6>
+                            <p class="fw-bold mb-1">TP HCM (SGN) → Kuala Lumpur (KUL)</p>
+                            <p class="small text-muted mb-1">Th 4, 10 thg 12, 2025</p>
+                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                <h5 class="text-danger mb-0">1.212.323 VND</h5>
+                                <span class="badge bg-light text-dark">Một Chiều</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Thai AirAsia -->
+                <div class="col-md-6">
+                    <div class="card flight-card h-100">
+                        <div class="card-body">
+                            <h6 class="text-primary mb-1">Thai AirAsia</h6>
+                            <p class="fw-bold mb-1">TP HCM (SGN) → Bangkok (DMK)</p>
+                            <p class="small text-muted mb-1">Th 4, 24 thg 12, 2025</p>
+                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                <h5 class="text-danger mb-0">1.597.861 VND</h5>
+                                <span class="badge bg-light text-dark">Một Chiều</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- VietJet Air -->
+                <div class="col-md-6">
+                    <div class="card flight-card h-100">
+                        <div class="card-body">
+                            <h6 class="text-primary mb-1">VietJet Air</h6>
+                            <p class="fw-bold mb-1">Đài Bắc (TPE) → Hà Nội (HAN)</p>
+                            <p class="small text-muted mb-1">Không có ngày cụ thể</p>
+                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                <h5 class="text-danger mb-0">1.988.672 VND</h5>
+                                <span class="badge bg-light text-dark">Một Chiều</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Nút xem thêm -->
+            <div class="text-center mt-4">
+                <button class="btn btn-outline-primary">Xem thêm deal bay</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Đối tác hàng không -->
+    <section class="container my-4">
+        <div class="bg-white p-4 rounded">
+            <h3 class="section-title">Đối tác hàng không</h3>
+            <div class="row text-center">
+                <div class="col-4 col-md-2"><img class="partner-logo" src="../WebDuLich/images/vj.png" alt="VietJet Air"></div>
+                <div class="col-4 col-md-2"><img class="partner-logo" src="../WebDuLich/images/bb.png" alt="Bamboo Airways"></div>
+                <div class="col-4 col-md-2"><img class="partner-logo" src="../WebDuLich/images/vn.png" alt="Vietnam Airlines"></div>
+                <div class="col-4 col-md-2"><img class="partner-logo" src="../WebDuLich/images/vt.png" alt="Vietravel Airlines"></div>
+                <div class="col-4 col-md-2"><img class="partner-logo" src="../WebDuLich/images/pa.png" alt="Pacific Airlines"></div>
+                <div class="col-4 col-md-2"><img class="partner-logo" src="../WebDuLich/images/li.png" alt="Lion Air"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Đối tác thanh toán -->
+    <section class="container my-4">
+        <div class="bg-white p-4 rounded">
+            <h3 class="section-title">Đối tác thanh toán</h3>
+            <div class="row text-center">
+                <div class="col-4 col-md-2"><img class="partner-logo" src="../WebDuLich/images/jcb.jpg" alt="JCB"></div>
+                <div class="col-4 col-md-2"><img class="partner-logo" src="../WebDuLich/images/vcb.jpg" alt="Vietcombank"></div>
+                <div class="col-4 col-md-2"><img class="partner-logo" src="../WebDuLich/images/mm.png" alt="Momo"></div>
+                <div class="col-4 col-md-2"><img class="partner-logo" src="../WebDuLich/images/mb.png" alt="MB Bank"></div>
+                <div class="col-4 col-md-2"><img class="partner-logo" src="../WebDuLich/images/vs.png" alt="Visa"></div>
+                <div class="col-4 col-md-2"><img class="partner-logo" src="../WebDuLich/images/vq.png" alt="VietQR"></div>
+            </div>
+        </div>
+    </section>
+    <!-- FAQ -->
+    <section class="container my-4">
+        <h3 class="section-title">Các câu hỏi thường gặp</h3>
+        <div class="bg-white p-4 rounded">
+            <div class="faq-item">
+                <button class="faq-question">Cần đến trước giờ bay bao lâu?</button>
+                <div class="faq-answer">
+                    <p>Nên đến trước 90-120 phút.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">Giấy tờ cần mang khi check-in gồm những gì?</button>
+                <div class="faq-answer">
+                    <p>CCCD/Passport và thông tin đặt vé.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">Tôi có thể mua về trước và trả tiền sau được không?</button>
+                <div class="faq-answer">
+                    <p>Có, hỗ trợ thanh toán trả sau.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">Mua về bay trên Traveloka có xuất hóa đơn VAT không?</button>
+                <div class="faq-answer">
+                    <p>Có, chúng tôi cung cấp hóa đơn VAT theo yêu cầu.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">Tôi phải trả bao nhiêu tiền cho mỗi kg hành lý mua thêm?</button>
+                <div class="faq-answer">
+                    <p>Phí hành lý mua thêm tùy thuộc vào hãng bay, thường từ 100.000 - 300.000 VND/kg.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">Phụ nữ mang thai đi máy bay được không?</button>
+                <div class="faq-answer">
+                    <p>Được, nhưng cần có giấy xác nhận sức khỏe từ bác sĩ và tuân thủ quy định của hãng bay.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Giới thiệu Traveloka -->
+    <section class="container my-4">
+        <div class="bg-white p-4 rounded">
+            <h2 class="section-title">Traveloka – Giải pháp đặt vé máy bay thông minh cho bạn</h2>
+            <p class="mb-4">Traveloka là một trong những nền tảng du lịch trực tuyến hàng đầu Đông Nam Á, cung cấp đầy
+                đủ tiện ích cho một chuyến đi trọn vẹn với các sản phẩm chính gồm: vé máy bay, khách sạn, vé xe khách,
+                du thuyền cùng hoạt động du lịch như vé tham quan, vé vui chơi, tour.</p>
+
+            <h4 class="fw-bold mb-3">Tại sao nên đặt vé máy bay trên Traveloka?</h4>
+            <p class="mb-4">Đặt vé bay trực tuyến trên Traveloka mang lại nhiều lợi ích vượt trội. Là đối tác của hơn
+                250 hãng hàng không lớn trên thế giới, Traveloka cung cấp hơn 300.000 đường bay nội địa và quốc tế giúp
+                bạn dễ dàng khám phá khắp nơi trên thế giới. Quy trình đặt đơn giản và nhanh chóng giúp bạn tiết kiệm
+                thời gian. Ngoài ra, việc thay đổi lịch bay linh hoạt giúp bạn dễ dàng quản lý kế hoạch đi lại của mình.
+                Hãy cùng Traveloka biến ước mơ du lịch thành hiện thực và tận hưởng những trải nghiệm tuyệt vời tại mọi
+                miền đất mới!</p>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="mb-4">
+                        <h5 class="fw-bold text-primary">1. Đa dạng các chặng bay nội địa và quốc tế</h5>
+                        <p class="mb-2">Traveloka cung cấp đa dạng vé bay nội địa với giờ và ngày bay linh hoạt, kết nối
+                            nhiều tỉnh thành như Sài Gòn – Hà Nội, Đà Nẵng – Sài Gòn, Huế – Đà Lạt, v.v. Các chuyến bay
+                            đến từ các hãng hàng không uy tín như Vietnam Airlines, Vietjet Air, Vietravel Airlines,
+                            Pacific Airlines và Bamboo Airlines, giúp hành trình du lịch trong nước trở nên đơn giản,
+                            nhanh chóng và thuận tiện với mức giá cạnh tranh.</p>
+                        <p>Bên cạnh các chuyến bay nội địa, Traveloka còn là lựa chọn lý tưởng cho những ai đang tìm
+                            kiếm đại lý bán vé máy bay quốc tế với hành trình phong phú và giá cả phải chăng. Từ Việt
+                            Nam, bạn có thể dễ dàng bay đến nhiều điểm đến nổi bật như Singapore, Thái Lan, Trung Quốc,
+                            Hong Kong, Tokyo, Seoul hay Sydney, Paris.</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="mb-4">
+                        <h5 class="fw-bold text-primary">2. Thuận tiện, nhanh chóng</h5>
+                        <p>Với giao diện dễ sử dụng và chính sách giá linh hoạt, Traveloka sẵn sàng đồng hành cùng bạn
+                            trên mọi hành trình, dù là trong nước hay vươn ra thế giới. Các chuyến bay quốc tế được khai
+                            thác bởi nhiều hãng hàng không uy tín như Singapore Airlines, Japan Airlines, China Southern
+                            Airlines, Scoot, Jetstar Airways,…</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <iframe src="footer.html" style="width: 100%; height: 670px; border: none; overflow: hidden;"></iframe>
+    <script src="../WebDuLich/bootstrap-5.3.8-dist/bootstrap-5.3.8-dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../WebDuLich/js/js-plane.js"></script>
+    <script src="../WebDuLich/js/h-f.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,1094 @@
+:root {
+  --primary-blue: #0770cd;
+  --light-blue: #0ea5e9;
+  --orange: #ff5e1f;
+  --bg-page: #f1f5f9;
+  --text-dark: #03121a;
+
+  /* mau footer */
+  --tf-bg-dark: #1c2930;
+  /* Màu nền chính */
+  --tf-text-title: #ffffff;
+  /* Màu tiêu đề */
+  --tf-text-link: #c5c9cc;
+  /* Màu link xám nhạt */
+  --tf-text-hover: #ffffff;
+  /* Màu hover */
+  --tf-border: #3e4c54;
+  /* Màu viền */
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: 'Google Sans', sans-serif;
+  background: var(--bg-page);
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* =========================================
+   1. TOP BAR & HERO 
+   ========================================= */
+
+/* --- Top Bar (Hàng 1) --- */
+.top-bar {
+  background: transparent;
+  /* Nền trong suốt đè lên ảnh */
+  padding: 15px 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  border-bottom: none;
+  /* Bỏ viền cũ */
+}
+
+/* Link Text trên Top Bar */
+.nav-link-top {
+  color: #fff !important;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 6px 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: opacity 0.2s;
+  cursor: pointer;
+}
+
+.nav-link-top:hover {
+  opacity: 0.8;
+  color: #fff;
+}
+
+/* Icon Khuyến mãi (Vòng tròn xanh lá) */
+.icon-promo {
+  width: 20px;
+  height: 20px;
+  background-color: #00c16e;
+  color: #001e2b;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: bold;
+}
+
+/* Nút Đăng nhập (Outline trắng) */
+.btn-login-custom {
+  background: transparent;
+  border: 1px solid #fff;
+  color: #fff;
+  padding: 6px 16px;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: 0.2s;
+  white-space: nowrap;
+}
+
+.btn-login-custom:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+}
+
+/* Nút Đăng ký (Xanh dương) */
+.btn-register-custom {
+  background: #007ce8;
+  border: none;
+  color: #fff;
+  padding: 7px 16px;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 14px;
+  transition: 0.2s;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  white-space: nowrap;
+}
+
+.btn-register-custom:hover {
+  background: #0060b5;
+  color: #fff;
+}
+
+/* --- Navigation Bar (Hàng 2 - Thay thế Service Tabs cũ) --- */
+.header-nav-bar {
+  position: absolute;
+  top: 65px;
+  /* Nằm ngay dưới Top Bar */
+  width: 100%;
+  z-index: 900;
+  padding-bottom: 10px;
+}
+
+/* Container chứa các mục menu */
+.service-tabs {
+  display: flex;
+  justify-content: flex-start;
+  /* Căn trái theo container */
+  gap: 25px;
+  /* Khoảng cách giữa các chữ */
+  border-bottom: none;
+  padding-bottom: 5px;
+  flex-wrap: wrap;
+}
+
+/* Style cho từng mục menu (Dạng chữ, không phải nút) */
+.service-tab {
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-weight: 700;
+  /* In đậm */
+  font-size: 14px;
+  padding: 5px 5px;
+  /* Bỏ padding ngang */
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  opacity: 0.9;
+}
+
+.service-tab:hover {
+  background: var(--light-blue);
+  color: #fff;
+  opacity: 1;
+}
+
+.service-tab.active {
+  background: var(--light-blue);
+  color: #fff;
+  opacity: 1;
+  /* Nếu muốn gạch chân giống web thật thì uncomment dòng dưới */
+  /* border-bottom: 2px solid #fff; */
+}
+
+/* --- Hero Section --- */
+.hero {
+  min-height: 600px;
+  height: auto;
+  padding-bottom: 50px;
+  position: relative;
+  background-image: url('https://hanoispiritofplace.com/wp-content/uploads/2015/11/canh-dep-viet-nam-8.jpg');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(64, 82, 248, 0.4) 0%, rgba(84, 68, 231, 0.1) 50%, rgba(93, 57, 255, 0.4) 100%);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1140px;
+  /* Tăng padding top để né 2 hàng header */
+  padding-top: 140px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.hero-title {
+  color: #fff;
+  font-weight: 700;
+  font-size: 30px;
+  text-align: center;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* =========================================
+   2. SEARCH CONTAINER & PILLS (Giữ nguyên)
+   ========================================= */
+.search-container {
+  width: 100%;
+}
+
+.trip-pill,
+.hotel-sub-pill {
+  background: transparent;
+  color: #fff;
+  border: none;
+  font-weight: 600;
+  font-size: 14px;
+  padding: 6px 12px;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.trip-pill.active,
+.hotel-sub-pill.active {
+  background: var(--light-blue);
+  color: #fff;
+}
+
+.hotel-sub-pill {
+  background: rgba(0, 0, 0, 0.5);
+  font-size: 13px;
+  padding: 6px 16px;
+  border-radius: 20px;
+}
+
+.input-label {
+  color: #fff;
+  font-weight: 700;
+  font-size: 13px;
+  margin-bottom: 6px;
+  display: block;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* ----- Input group styling ----- */
+.pill-group-container {
+  background: #fff;
+  border-radius: 25px;
+  display: flex;
+  align-items: center;
+  height: 50px;
+  position: relative;
+  overflow: visible;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: 0.2s;
+  width: 100%;
+}
+
+.pill-group-container:hover {
+  border-color: #ccc;
+}
+
+.pill-sub-input {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  gap: 10px;
+  cursor: pointer;
+  transition: 0.2s;
+  width: 100%;
+}
+
+.pill-sub-input.start-pill {
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+}
+
+.pill-sub-input.end-pill {
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+}
+
+.pill-sub-input:hover {
+  background-color: #f2f7ff;
+}
+
+.pill-divider {
+  width: 1px;
+  height: 32px;
+  background-color: #e0e0e0;
+  margin-left: -10px;
+}
+
+.input-display {
+  font-weight: 600;
+  color: var(--text-dark);
+  font-size: 15px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+}
+
+.input-field-real {
+  border: none;
+  outline: none;
+  font-weight: 600;
+  width: 100%;
+  font-size: 15px;
+  background: transparent;
+}
+
+.input-field-real::placeholder {
+  color: #999;
+  font-weight: 500;
+}
+
+.swap-btn-circle {
+  width: 36px;
+  height: 36px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary-blue);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  cursor: pointer;
+  transition: 0.2s;
+  margin-left: -10px;
+}
+
+.swap-btn-circle:hover {
+  background: #f0f7ff;
+  border-color: var(--primary-blue);
+  transform: translate(-50%, -50%) rotate(180deg);
+}
+
+/* =========================================
+   3. HOTEL SPECIFIC
+   ========================================= */
+.custom-input-box {
+  background: #fff;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  gap: 10px;
+  width: 100%;
+  position: relative;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.custom-input-box:hover {
+  background-color: #f8f9fa;
+}
+
+.custom-input-box i {
+  color: var(--light-blue);
+  font-size: 18px;
+}
+
+.hotel-box-start {
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  border-right: 1px solid #eee;
+}
+
+.hotel-box-mid {
+  border-right: 1px solid #eee;
+}
+
+.hotel-search-btn {
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+  background: var(--orange);
+  border: none;
+  width: 100%;
+  height: 50px;
+  color: #fff;
+  font-size: 20px;
+}
+
+.search-btn-rounded {
+  background: var(--orange);
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  transition: 0.2s;
+  box-shadow: 0 4px 10px rgba(255, 94, 31, 0.4);
+}
+
+.search-btn-rounded:hover,
+.hotel-search-btn:hover {
+  background: #e04a10;
+  transform: translateY(-2px);
+}
+
+.custom-checkbox {
+  width: 18px;
+  height: 18px;
+  margin-right: 6px;
+  cursor: pointer;
+  accent-color: var(--primary-blue);
+}
+
+/* =========================================
+   4. DROPDOWN & CALENDAR
+   ========================================= */
+.dropdown-menu-custom {
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  border: none;
+  padding: 0;
+  overflow: hidden;
+  margin-top: 8px !important;
+  width: 350px;
+  z-index: 3000 !important;
+  position: absolute;
+}
+
+.dropdown-item {
+  padding: 10px 16px;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+}
+
+.dropdown-item:active,
+.dropdown-item:hover {
+  background-color: #f7f9fa;
+  color: var(--primary-blue);
+}
+
+.calendar-dropdown {
+  width: 700px;
+  padding: 20px;
+}
+
+.calendar-header {
+  font-weight: 700;
+  font-size: 16px;
+  margin-bottom: 15px;
+  text-transform: capitalize;
+}
+
+.calendar-days-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+  margin-top: 10px;
+}
+
+.day-cell {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: 0.1s;
+}
+
+.day-cell:hover:not(.empty):not(.disabled) {
+  background-color: #e6f4ff;
+  color: var(--primary-blue);
+}
+
+.day-cell.selected {
+  background-color: var(--primary-blue);
+  color: #fff;
+  border-radius: 50% !important;
+  z-index: 2;
+  position: relative;
+}
+
+.day-cell.in-range {
+  background-color: #ebf6ff;
+  color: #000;
+  border-radius: 0;
+}
+
+.day-cell.range-start {
+  background-color: var(--primary-blue);
+  color: #fff;
+  border-radius: 50% 0 0 50%;
+}
+
+.day-cell.range-end {
+  background-color: var(--primary-blue);
+  color: #fff;
+  border-radius: 0 50% 50% 0;
+}
+
+.day-cell.empty {
+  cursor: default;
+  visibility: hidden;
+}
+
+.counter-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  border-bottom: 1px solid #eee;
+}
+
+.btn-counter {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid var(--primary-blue);
+  color: var(--primary-blue);
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+.btn-counter:active {
+  background: #f0f7ff;
+}
+
+/* Bottom / Quick links */
+.bottom-links {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.bottom-link {
+  color: #fff;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 5px 10px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* =========================================
+   5. UNIFIED BAR (BUS/TRANSFER/CAR)
+   ========================================= */
+.unified-search-bar {
+  background: #fff;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  height: 55px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  position: relative;
+  width: 100%;
+}
+
+.unified-item {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 15px;
+  position: relative;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.unified-item:hover {
+  background-color: #f2f7ff;
+}
+
+.unified-divider {
+  width: 1px;
+  height: 30px;
+  background-color: #e0e0e0;
+}
+
+.unified-search-btn {
+  height: 100%;
+  width: 60px;
+  background: var(--orange);
+  border: none;
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+  color: white;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.2s;
+}
+
+.unified-search-btn:hover {
+  background: #e04a10;
+}
+
+.bus-swap-absolute {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 32px;
+  height: 32px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary-blue);
+  z-index: 10;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.bus-swap-absolute:hover {
+  transform: translate(-50%, -50%) rotate(180deg);
+  border-color: var(--primary-blue);
+}
+
+.unified-item:first-child {
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+}
+
+/* Flex ratios */
+.unified-item.route-box {
+  flex: 2;
+}
+
+.unified-item.date-box {
+  flex: 1.5;
+}
+
+.unified-item.seat-box {
+  flex: 1.2;
+}
+
+.transfer-route-box {
+  flex: 3;
+}
+
+.transfer-date-box {
+  flex: 1.2;
+}
+
+.transfer-time-box {
+  flex: 0.8;
+}
+
+.car-location-box {
+  flex: 2.2;
+}
+
+.car-date-box {
+  flex: 1.2;
+}
+
+.car-time-box {
+  flex: 0.8;
+}
+
+/* =========================================
+   6. MODAL & ACTIVITY STYLES
+   ========================================= */
+.btn-toggle-car {
+  background: rgba(0, 0, 0, 0.4);
+  border: none;
+  padding: 6px 16px;
+  border-radius: 20px;
+  color: #fff;
+  font-weight: 600;
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+.btn-toggle-car:hover {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.btn-toggle-car.active {
+  background: #007ce8;
+  color: #fff;
+}
+
+.modal-other-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #333;
+  margin: 12px 0;
+}
+
+.modal-item-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin-bottom: 16px;
+  cursor: pointer;
+  transition: 0.2s;
+  text-decoration: none;
+  color: #000;
+}
+
+.modal-item-box:hover {
+  border-color: var(--primary-blue);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  color: var(--primary-blue);
+}
+
+.modal-icon-circle {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 16px;
+}
+
+.icon-pink {
+  color: #ec4899;
+  background: #fdf2f8;
+}
+
+.icon-green {
+  color: #10b981;
+  background: #ecfdf5;
+}
+
+.icon-blue {
+  color: #3b82f6;
+  background: #eff6ff;
+}
+
+.icon-orange {
+  color: #f97316;
+  background: #fff7ed;
+}
+
+.icon-purple {
+  color: #a855f7;
+  background: #f3e8ff;
+}
+
+.item-text {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.act-pill {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.2s;
+  white-space: nowrap;
+  border: none;
+}
+
+.act-pill:hover {
+  background: #fff;
+  color: var(--primary-blue);
+  transform: translateY(-2px);
+}
+
+.btn-explore {
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 25px;
+  padding: 0 24px;
+  height: 55px;
+  font-weight: 600;
+  transition: 0.2s;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-explore:hover {
+  background: #000;
+  color: #fff;
+  border-color: #fff;
+}
+
+.text-shadow {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* =========================================
+   7. OFFCANVAS & RESPONSIVE
+   ========================================= */
+.offcanvas-custom {
+  width: 300px;
+}
+
+.offcanvas-link {
+  display: block;
+  padding: 12px 20px;
+  color: #333;
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.offcanvas-link:hover {
+  background: #f5f5f5;
+  color: var(--primary-blue);
+}
+
+.dropdown-menu-custom {
+  z-index: 3000 !important;
+}
+
+.dropdown-mobile-open {
+  position: static !important;
+  width: 100% !important;
+  box-shadow: none !important;
+  border-radius: 12px;
+  max-height: 80vh;
+  overflow: auto;
+}
+
+#calendarModal .modal-body {
+  padding: 0;
+}
+
+#calendarModal .modal-dialog {
+  max-width: 740px;
+  width: 95%;
+}
+
+.mobile-calendar-left-header {
+  background: #fff;
+  border-bottom: 1px solid #eee;
+}
+
+
+/* footer */
+
+/* --- BEM & CAMELCASE CSS --- */
+
+/* BLOCK: travelokaFooter */
+.travelokaFooter {
+  background-color: var(--tf-bg-dark);
+  color: var(--tf-text-link);
+  padding-top: 50px;
+  padding-bottom: 30px;
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* ELEMENT: heading */
+.travelokaFooter__heading {
+  color: var(--tf-text-title);
+  font-weight: 700;
+  font-size: 16px;
+  margin-bottom: 20px;
+  margin-top: 0;
+}
+
+/* ELEMENT: linkList & linkItem */
+.travelokaFooter__linkList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.travelokaFooter__linkItem {
+  display: block;
+  color: var(--tf-text-link);
+  text-decoration: none;
+  margin-bottom: 12px;
+  font-size: 14px;
+  transition: color 0.2s ease;
+}
+
+.travelokaFooter__linkItem:hover {
+  color: var(--tf-text-hover);
+}
+
+/* ELEMENT: logoSection */
+.travelokaFooter__logoSection {
+  margin-bottom: 25px;
+}
+
+.travelokaFooter__logoImg {
+  /* Giả lập logo Traveloka text trắng */
+  font-size: 28px;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -1px;
+}
+
+.travelokaFooter__logoBird {
+  color: #1ba0e2;
+  /* Màu xanh đặc trưng của con chim Traveloka */
+}
+
+/* ELEMENT: certBadge (Chứng chỉ) */
+.travelokaFooter__certSection {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 25px;
+  align-items: center;
+}
+
+/* Giả lập các badge chứng chỉ hình tròn/chữ nhật */
+.travelokaFooter__certBadge {
+  background: white;
+  height: 35px;
+  min-width: 35px;
+  padding: 0 8px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: bold;
+  color: #333;
+}
+
+.travelokaFooter__certBadge--round {
+  border-radius: 50%;
+  padding: 0;
+  width: 35px;
+}
+
+.travelokaFooter__certBadge--bct {
+  background: transparent;
+  /* Giả lập logo bộ công thương */
+  width: auto;
+}
+
+.travelokaFooter__certBadge--bct img {
+  height: 35px;
+  width: auto;
+}
+
+/* ELEMENT: partnerBtn (Nút Hợp tác) */
+.travelokaFooter__partnerBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #fff;
+  color: #fff;
+  background-color: transparent;
+  border-radius: 6px;
+  padding: 10px 20px;
+  font-weight: 700;
+  text-decoration: none;
+  margin-bottom: 30px;
+  transition: all 0.3s;
+  font-size: 14px;
+}
+
+.travelokaFooter__partnerBtn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.travelokaFooter__partnerBtn i {
+  margin-right: 8px;
+}
+
+/* ELEMENT: paymentGrid (Lưới thanh toán) */
+.travelokaFooter__paymentGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.travelokaFooter__paymentItem {
+  background: #fff;
+  width: 50px;
+  height: 30px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Style text giả lập logo ngân hàng để giống hình mà không cần ảnh */
+.travelokaFooter__paymentLogo {
+  font-size: 8px;
+  font-weight: 900;
+  text-align: center;
+  line-height: 1;
+}
+
+/* ELEMENT: socialList */
+.travelokaFooter__socialList {
+  display: flex;
+  gap: 15px;
+  list-style: none;
+  padding: 0;
+  margin-top: 10px;
+}
+
+.travelokaFooter__socialIcon {
+  font-size: 22px;
+  color: var(--tf-text-link);
+  transition: color 0.3s;
+}
+
+.travelokaFooter__socialIcon:hover {
+  color: var(--tf-text-title);
+}
+
+/* ELEMENT: appDownload */
+.travelokaFooter__downloadList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.travelokaFooter__downloadBadge {
+  width: 140px;
+  /* Kích thước chuẩn badge store */
+  height: auto;
+  border-radius: 5px;
+  border: 1px solid #555;
+  cursor: pointer;
+}
+
+/* ELEMENT: copyright */
+.travelokaFooter__copyright {
+  border-top: 1px solid var(--tf-border);
+  margin-top: 40px;
+  padding-top: 30px;
+  text-align: center;
+  font-size: 12px;
+  color: #aeb4b9;
+}
+
+.travelokaFooter__copyright p {
+  margin-bottom: 5px;
+}
